@@ -2,7 +2,7 @@ name: Weekly Update
 
 on:
   schedule:
-    - cron: '0 2 * * 0'  # 每週日 02:00 UTC 執行
+    - cron: '0 15 * * 1'  # 每週一 23:00 台北時間 (UTC+8)
   workflow_dispatch:       # 也可以手動觸發
 
 jobs:
@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 

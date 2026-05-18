@@ -161,33 +161,33 @@ class DigiwinCrawler:
             logging.error(f"Error fetching {url}: {e}")
             return None
 
-    def crawl(self):
+    def crawl(self, progress_callback=None, progress_interval=10):
         logging.info("Starting crawler...")
         self.load_robots_txt()
         self.load_sitemap()
-        
+
         start_norm = self.normalize_url(self.start_url)
         self.queue.append({"url": start_norm, "referer": None})
-        
+
         pages_crawled = 0
-        
+
         while self.queue:
             if self.max_pages > 0 and pages_crawled >= self.max_pages:
                 logging.info(f"Reached max pages limit ({self.max_pages}). Stopping crawl.")
                 break
-                
+
             current = self.queue.pop(0)
             url = current["url"]
             referer = current["referer"]
-            
+
             if url in self.visited:
                 continue
-                
+
             self.visited.add(url)
-            
+
             # Perform HEAD check
             head_result = self.process_head(url)
-            
+
             if not head_result["valid"]:
                 if head_result.get("status") in [403, 404]:
                     self.broken_links.append({
@@ -199,15 +199,18 @@ class DigiwinCrawler:
                     self.skipped_pages[url] = {"reason": head_result.get('reason', f'Status {head_result.get("status")}')}
                 logging.debug(f"Skipped {url}: {head_result.get('reason', f'Status {head_result.get('status')}')}")
                 continue
-                
+
             # Perform GET and extract
             success = self.fetch_and_extract(url, referer)
             if success:
                 pages_crawled += 1
-                
+                if progress_callback and pages_crawled % progress_interval == 0:
+                    logging.info(f"Progress checkpoint: {pages_crawled} pages crawled, triggering report update.")
+                    progress_callback(self.pages_data, self.sitemap_urls, self.broken_links, self.skipped_pages, self.robot_parser)
+
             # Polite delay
             time.sleep(0.5)
-            
+
         logging.info(f"Crawl finished. Processed {pages_crawled} valid pages.")
         return self.pages_data, self.sitemap_urls, self.broken_links, self.skipped_pages, self.robot_parser
 

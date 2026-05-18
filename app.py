@@ -48,19 +48,26 @@ def generate_report(issues, total_pages):
 
 def main():
     logging.info("Starting weekly SEO check...")
-    
-    # Initialize crawler (max_pages=0 means crawl everything)
-    crawler = DigiwinCrawler(max_pages=0) 
-    
-    pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser = crawler.crawl()
-    
+
+    crawler = DigiwinCrawler(max_pages=0)
+
+    def on_progress(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser):
+        analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
+        issues = analyzer.analyze()
+        generate_report(issues, len(pages_data))
+        logging.info(f"Intermediate report updated ({len(pages_data)} pages crawled so far)")
+
+    pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser = crawler.crawl(
+        progress_callback=on_progress,
+        progress_interval=10
+    )
+
     analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
     issues = analyzer.analyze()
-    
-    # Save a JSON backup just in case
+
     with open('issues.json', 'w', encoding='utf-8') as f:
         json.dump(issues, f, ensure_ascii=False, indent=2)
-        
+
     generate_report(issues, len(pages_data))
     
 if __name__ == "__main__":
