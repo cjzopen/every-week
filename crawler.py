@@ -89,6 +89,10 @@ class DigiwinCrawler:
         # Ignore specific paths
         if parsed.path.startswith('/search'):
             return False
+        if parsed.path.startswith('/tag/'):
+            return False
+        if parsed.path.startswith('/zlsq'):
+            return False
             
         # Ignore mailto, tel, javascript, etc.
         if parsed.scheme and parsed.scheme not in ['http', 'https']:
