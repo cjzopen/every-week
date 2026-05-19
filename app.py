@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import subprocess
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 from crawler import DigiwinCrawler
@@ -56,10 +57,22 @@ def main():
         issues = analyzer.analyze()
         generate_report(issues, len(pages_data))
         logging.info(f"Intermediate report updated ({len(pages_data)} pages crawled so far)")
+        try:
+            subprocess.run(["git", "add", "index.html"], check=True)
+            result = subprocess.run(
+                ["git", "diff", "--staged", "--quiet"],
+                capture_output=True
+            )
+            if result.returncode != 0:
+                subprocess.run(["git", "commit", "-m", f"Progress: {len(pages_data)} pages crawled"], check=True)
+                subprocess.run(["git", "push"], check=True)
+                logging.info(f"Pushed intermediate index.html at {len(pages_data)} pages")
+        except subprocess.CalledProcessError as e:
+            logging.warning(f"Git push skipped (not in CI or git error): {e}")
 
     pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser = crawler.crawl(
         progress_callback=on_progress,
-        progress_interval=10
+        progress_interval=200
     )
 
     analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
