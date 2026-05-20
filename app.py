@@ -2,6 +2,8 @@ import os
 import json
 import logging
 import subprocess
+import time
+import sys
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 from crawler import DigiwinCrawler
@@ -50,30 +52,61 @@ def generate_report(issues, total_pages):
 def main():
     logging.info("Starting weekly SEO check...")
 
+    state_file = 'crawler_state.json'
+    completed = False
+    
+    # Check weekly reset
+    if os.path.exists(state_file):
+        try:
+            mtime = os.path.getmtime(state_file)
+            age_days = (time.time() - mtime) / (24 * 3600)
+            if age_days > 5:
+                logging.info(f"State file is {age_days:.1f} days old. Starting fresh weekly crawl.")
+                os.remove(state_file)
+        except Exception as e:
+            logging.error(f"Failed to check/remove old state file: {e}")
+
     crawler = DigiwinCrawler(max_pages=0)
 
+    # Load state if exists
+    if os.path.exists(state_file):
+        logging.info(f"Found existing state file: {state_file}")
+        state = crawler.load_state(state_file)
+        if state and state.get("completed", False):
+            logging.info("Crawl already completed this week. Exiting.")
+            sys.exit(0)
+
     def on_progress(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser):
+        # Save current state first
+        crawler.save_state(state_file, completed=False)
+
         analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
         issues = analyzer.analyze()
         generate_report(issues, len(pages_data))
         logging.info(f"Intermediate report updated ({len(pages_data)} pages crawled so far)")
         try:
-            subprocess.run(["git", "add", "index.html"], check=True)
+            subprocess.run(["git", "add", "index.html", state_file], check=True)
             result = subprocess.run(
                 ["git", "diff", "--staged", "--quiet"],
                 capture_output=True
             )
             if result.returncode != 0:
-                subprocess.run(["git", "commit", "-m", f"Progress: {len(pages_data)} pages crawled"], check=True)
+                subprocess.run(["git", "commit", "-m", f"Progress: {len(pages_data)} pages crawled (Queue: {len(crawler.queue)})"], check=True)
                 subprocess.run(["git", "push"], check=True)
-                logging.info(f"Pushed intermediate index.html at {len(pages_data)} pages")
+                logging.info(f"Pushed intermediate index.html and state at {len(pages_data)} pages")
         except subprocess.CalledProcessError as e:
             logging.warning(f"Git push skipped (not in CI or git error): {e}")
 
+    # Run crawl (max 5 hours = 18000 seconds)
     pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser = crawler.crawl(
         progress_callback=on_progress,
-        progress_interval=200
+        progress_interval=200,
+        max_duration_seconds=18000
     )
+
+    # Determine if fully completed
+    completed = len(crawler.queue) == 0
+    crawler.save_state(state_file, completed=completed)
 
     analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
     issues = analyzer.analyze()

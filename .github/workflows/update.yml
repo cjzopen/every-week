@@ -2,7 +2,7 @@ name: Weekly Update
 
 on:
   schedule:
-    - cron: '0 15 * * 2'  # 每週二 23:00 台北時間 (UTC+8)
+    - cron: '0 15 * * 5,6'  # 每週五、六 23:00 台北時間 (UTC+8)
   workflow_dispatch:       # 也可以手動觸發
 
 jobs:

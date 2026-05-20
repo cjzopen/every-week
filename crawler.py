@@ -6,6 +6,7 @@ from urllib.robotparser import RobotFileParser
 import re
 import time
 import logging
+import json
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -149,6 +150,103 @@ class DigiwinCrawler:
         except Exception as e:
             return {"valid": False, "reason": str(e), "status": 0}
 
+    def extract_seo_metadata(self, url, html, soup):
+        # 1. Title
+        title_tag = soup.find('title')
+        title = title_tag.string.strip() if title_tag and title_tag.string else ""
+
+        # 2. Description
+        desc_tag = soup.find('meta', attrs={'name': re.compile(r'^description$', re.I)})
+        description = desc_tag.get('content', '') if desc_tag else ""
+
+        # 3. Canonical
+        canonical_tag = soup.find('link', attrs={'rel': 'canonical'})
+        canonical = canonical_tag.get('href', '') if canonical_tag else ""
+
+        # 4. Vue CSR signatures
+        has_vue_csr = 'v-chunk' in html or 'v-if' in html or 'v-bind' in html
+
+        # 5. Viewport
+        viewport_tag = soup.find('meta', attrs={'name': re.compile(r'^viewport$', re.I)})
+        has_viewport = viewport_tag is not None
+
+        # 6. Charset
+        charset_tags = soup.find_all('meta', charset=True)
+        content_type_tags = soup.find_all('meta', attrs={'http-equiv': re.compile(r'^Content-Type$', re.I)})
+        has_big5 = False
+        for tag in charset_tags:
+            val = tag.get('charset', '').lower()
+            if 'big5' in val or 'big-5' in val:
+                has_big5 = True
+        for tag in content_type_tags:
+            val = tag.get('content', '').lower()
+            if 'big5' in val or 'big-5' in val:
+                has_big5 = True
+
+        # 7. GTM IDs
+        gtms = list(set(re.findall(r'GTM-[A-Z0-9]+', html)))
+
+        # 8. H1 tag count
+        h1_count = len(soup.find_all('h1'))
+
+        # 9. Extract and normalize internal links
+        internal_links = []
+        for a_tag in soup.find_all('a', href=True):
+            href = a_tag['href']
+            absolute_url = urllib.parse.urljoin(url, href)
+            norm_url = self.normalize_url(absolute_url)
+            if self.is_internal_and_valid(norm_url):
+                internal_links.append(norm_url)
+        internal_links = list(set(internal_links)) # deduplicate
+
+        return {
+            "title": title,
+            "description": description,
+            "canonical": canonical,
+            "has_vue_csr": has_vue_csr,
+            "has_viewport": has_viewport,
+            "has_big5": has_big5,
+            "gtms": gtms,
+            "h1_count": h1_count,
+            "internal_links": internal_links
+        }
+
+    def save_state(self, filepath, completed=False):
+        state = {
+            "completed": completed,
+            "timestamp": time.time(),
+            "visited": list(self.visited),
+            "queue": self.queue,
+            "pages_data": self.pages_data,
+            "sitemap_urls": list(self.sitemap_urls),
+            "broken_links": self.broken_links,
+            "skipped_pages": self.skipped_pages
+        }
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(state, f, ensure_ascii=False, indent=2)
+            logging.info(f"State saved to {filepath}")
+        except Exception as e:
+            logging.error(f"Failed to save state: {e}")
+
+    def load_state(self, filepath):
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                state = json.load(f)
+            
+            self.visited = set(state.get("visited", []))
+            self.queue = state.get("queue", [])
+            self.pages_data = state.get("pages_data", {})
+            self.sitemap_urls = set(state.get("sitemap_urls", []))
+            self.broken_links = state.get("broken_links", [])
+            self.skipped_pages = state.get("skipped_pages", {})
+            
+            logging.info(f"State loaded from {filepath}. Visited: {len(self.visited)}, Queue: {len(self.queue)}")
+            return state
+        except Exception as e:
+            logging.error(f"Failed to load state: {e}")
+            return None
+
     def fetch_and_extract(self, url, referer):
         logging.info(f"Fetching: {url}")
         try:
@@ -163,23 +261,19 @@ class DigiwinCrawler:
                 self.skipped_pages[url] = {"reason": "meta robots noindex"}
                 return None
                 
-            # Store valid page data
+            # Extract metadata
+            metadata = self.extract_seo_metadata(url, html, soup)
+            
+            # Store valid page data (with metadata instead of raw html)
             self.pages_data[url] = {
-                "html": html,
+                "metadata": metadata,
                 "referer": referer
             }
             
-            # Extract links
-            for a_tag in soup.find_all('a', href=True):
-                href = a_tag['href']
-                absolute_url = urllib.parse.urljoin(url, href)
-                norm_url = self.normalize_url(absolute_url)
-                
-                # We need to process this link
+            # Extract links for crawling (using links from metadata)
+            for norm_url in metadata["internal_links"]:
                 if self.is_internal_and_valid(norm_url):
                     if norm_url not in self.visited:
-                        # Only add to queue if not already visited
-                        # We also don't want the queue to grow forever with duplicates, so check if it's already in queue
                         if not any(item['url'] == norm_url for item in self.queue):
                             self.queue.append({"url": norm_url, "referer": url})
                             
@@ -189,19 +283,28 @@ class DigiwinCrawler:
             logging.error(f"Error fetching {url}: {e}")
             return None
 
-    def crawl(self, progress_callback=None, progress_interval=10):
+    def crawl(self, progress_callback=None, progress_interval=10, max_duration_seconds=0):
         logging.info("Starting crawler...")
+        
+        # Always load robots.txt on startup since it's not serialized easily
         self.load_robots_txt()
-        self.load_sitemap()
 
-        start_norm = self.normalize_url(self.start_url)
-        self.queue.append({"url": start_norm, "referer": None})
+        # If starting fresh, load sitemap and queue homepage
+        if not self.queue and not self.visited:
+            self.load_sitemap()
+            start_norm = self.normalize_url(self.start_url)
+            self.queue.append({"url": start_norm, "referer": None})
 
         pages_crawled = 0
+        start_time = time.time()
 
         while self.queue:
             if self.max_pages > 0 and pages_crawled >= self.max_pages:
                 logging.info(f"Reached max pages limit ({self.max_pages}). Stopping crawl.")
+                break
+
+            if max_duration_seconds > 0 and (time.time() - start_time) > max_duration_seconds:
+                logging.info(f"Reached max duration limit ({max_duration_seconds}s). Stopping crawl to save progress.")
                 break
 
             current = self.queue.pop(0)
