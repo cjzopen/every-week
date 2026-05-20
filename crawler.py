@@ -102,7 +102,31 @@ class DigiwinCrawler:
 
     def process_head(self, url):
         try:
-            resp = self.session.head(url, timeout=10, allow_redirects=True)
+            resp = self.session.head(url, timeout=10, allow_redirects=False)
+            
+            # Handle Redirects
+            if resp.status_code in [301, 302, 307, 308]:
+                location = resp.headers.get('Location')
+                if not location:
+                    return {"valid": False, "reason": f"Redirect status {resp.status_code} but no Location header", "status": resp.status_code}
+                
+                target_url = self.normalize_url(urllib.parse.urljoin(url, location))
+                if self.is_internal_and_valid(target_url):
+                    return {
+                        "valid": False, 
+                        "reason": f"Redirected to internal URL: {target_url}", 
+                        "status": resp.status_code, 
+                        "redirect_type": "internal", 
+                        "redirect_target": target_url
+                    }
+                else:
+                    return {
+                        "valid": False, 
+                        "reason": f"Redirected to external domain: {target_url}", 
+                        "status": resp.status_code, 
+                        "redirect_type": "external", 
+                        "redirect_target": target_url
+                    }
             
             if resp.status_code in [403, 404]:
                 return {"valid": False, "status": resp.status_code}
@@ -193,6 +217,14 @@ class DigiwinCrawler:
             head_result = self.process_head(url)
 
             if not head_result["valid"]:
+                # Check if it was a redirect to an internal page
+                if head_result.get("redirect_type") == "internal":
+                    target_url = head_result["redirect_target"]
+                    # If target_url has not been visited and is not already in the queue, add it
+                    if target_url not in self.visited and not any(item['url'] == target_url for item in self.queue):
+                        self.queue.append({"url": target_url, "referer": referer})
+                        logging.info(f"Redirect from {url} to internal {target_url} added to queue.")
+                
                 if head_result.get("status") in [403, 404]:
                     self.broken_links.append({
                         "url": url,
