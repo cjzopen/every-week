@@ -1,487 +1,497 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>SEO 檢查報告 | Digiwin 每週爬蟲</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      /* Hololive Shop Inspired Tokens */
-      --bg: #F0F4F8;
-      --surface1: #FFFFFF;
-      --surface2: #FAFAFA;
-      --surface3: #F1F5F9;
-      --border: #E2E8F0;
-      --border-visible: #CBD5E1;
-      
-      --text1: #0F172A;
-      --text2: #334155;
-      --text3: #64748B;
-      --text4: #94A3B8;
-      
-      --accent: #00B5E2; /* Hololive Cyan */
-      --accent-subtle: #E0F7FA;
-      --accent-hover: #0098C0;
-      
-      --success: #10B981;
-      --warning: #F59E0B;
-      --error: #EF4444;
-      --error-subtle: #FEE2E2;
-      
-      /* Typography */
-      --font-family: 'Noto Sans TC', sans-serif;
-      
-      /* Radii */
-      --radius-element: 8px;
-      --radius-control: 12px;
-      --radius-component: 24px;
-      --radius-pill: 999px;
-      
-      /* Spacing */
-      --spacing-xs: 4px;
-      --spacing-sm: 8px;
-      --spacing-md: 16px;
-      --spacing-lg: 24px;
-      --spacing-xl: 32px;
-      --spacing-2xl: 48px;
-      
-      /* Shadows */
-      --shadow-subtle: 0 4px 20px rgba(0, 181, 226, 0.08);
-      --shadow-card: 0 8px 30px rgba(15, 23, 42, 0.04);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>每週爬蟲</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Hololive Shop Inspired Tokens */
+            --bg: #F0F4F8;
+            --surface1: #FFFFFF;
+            --surface2: #FAFAFA;
+            --surface3: #F1F5F9;
+            --border: #E2E8F0;
+            --border-visible: #CBD5E1;
 
-    body {
-      font-family: var(--font-family);
-      background-color: var(--bg);
-      color: var(--text1);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
+            --text1: #0F172A;
+            --text2: #334155;
+            --text3: #64748B;
+            --text4: #94A3B8;
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--spacing-2xl) var(--spacing-lg);
-    }
+            --accent: #00B5E2;
+            /* Hololive Cyan */
+            --accent-subtle: #E0F7FA;
+            --accent-hover: #0098C0;
 
-    /* Header */
-    header {
-      text-align: center;
-      margin-bottom: var(--spacing-2xl);
-      position: relative;
-    }
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --error-subtle: #FEE2E2;
 
-    h1 {
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--text1);
-      margin-bottom: var(--spacing-sm);
-      letter-spacing: -0.5px;
-    }
+            /* Typography */
+            --font-family: 'Noto Sans TC', sans-serif;
 
-    .subtitle {
-      color: var(--text3);
-      font-size: 16px;
-      font-weight: 500;
-    }
+            /* Radii */
+            --radius-element: 8px;
+            --radius-control: 12px;
+            --radius-component: 24px;
+            --radius-pill: 999px;
 
-    .accent-bar {
-      width: 60px;
-      height: 6px;
-      background-color: var(--accent);
-      border-radius: var(--radius-pill);
-      margin: var(--spacing-md) auto;
-    }
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
 
-    /* Summary Cards */
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--spacing-lg);
-      margin-bottom: var(--spacing-2xl);
-    }
+            /* Shadows */
+            --shadow-subtle: 0 4px 20px rgba(0, 181, 226, 0.08);
+            --shadow-card: 0 8px 30px rgba(15, 23, 42, 0.04);
+        }
 
-    .summary-card {
-      background-color: var(--surface1);
-      border-radius: var(--radius-component);
-      padding: var(--spacing-lg);
-      box-shadow: var(--shadow-card);
-      text-align: center;
-      border: 2px solid transparent;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg);
+            color: var(--text1);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-    .summary-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-subtle);
-      box-shadow: var(--shadow-subtle);
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
 
-    .summary-value {
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: var(--spacing-sm);
-    }
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+        }
 
-    .summary-label {
-      color: var(--text2);
-      font-size: 16px;
-      font-weight: 700;
-    }
+        h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--text1);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.5px;
+        }
 
-    /* Issues Section */
-    .issue-section {
-      background-color: var(--surface1);
-      border-radius: var(--radius-component);
-      padding: var(--spacing-xl);
-      box-shadow: var(--shadow-card);
-      margin-bottom: var(--spacing-xl);
-      border: 2px solid transparent;
-      transition: border-color 0.2s ease;
-    }
+        .subtitle {
+            color: var(--text3);
+            font-size: 16px;
+            font-weight: 500;
+        }
 
-    .issue-section summary {
-      list-style: none;
-      cursor: pointer;
-      outline: none;
-    }
+        .accent-bar {
+            width: 60px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: var(--radius-pill);
+            margin: var(--spacing-md) auto;
+        }
 
-    .issue-section summary::-webkit-details-marker {
-      display: none;
-    }
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
 
-    .summary-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
+        .summary-card {
+            background-color: var(--surface1);
+            border-radius: var(--radius-component);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .summary-header h2 {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text1);
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-    }
+        .summary-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-subtle);
+            box-shadow: var(--shadow-subtle);
+        }
 
-    .summary-header h2 .badge {
-      background-color: var(--error-subtle);
-      color: var(--error);
-      font-size: 14px;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      font-weight: 700;
-    }
+        .summary-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
 
-    .chevron {
-      color: var(--text3);
-      transition: transform 0.3s ease;
-      display: flex;
-      align-items: center;
-    }
+        .summary-label {
+            color: var(--text2);
+            font-size: 16px;
+            font-weight: 700;
+        }
 
-    details[open] .chevron {
-      transform: rotate(180deg);
-    }
+        /* Issues Section */
+        .issue-section {
+            background-color: var(--surface1);
+            border-radius: var(--radius-component);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-card);
+            margin-bottom: var(--spacing-xl);
+            border: 2px solid transparent;
+            transition: border-color 0.2s ease;
+        }
 
-    .issue-table-container {
-      overflow-x: auto;
-      margin-top: var(--spacing-md);
-    }
+        .issue-section summary {
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+        }
 
-    .issue-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-    }
+        .issue-section summary::-webkit-details-marker {
+            display: none;
+        }
 
-    .issue-table th, .issue-table td {
-      padding: var(--spacing-md);
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-    .issue-table th {
-      font-weight: 700;
-      color: var(--text2);
-      background-color: var(--surface2);
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.5px;
-    }
+        .summary-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text1);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
 
-    .issue-table th:first-child {
-      border-top-left-radius: var(--radius-control);
-      border-bottom-left-radius: var(--radius-control);
-    }
+        .summary-header h2 .badge {
+            background-color: var(--error-subtle);
+            color: var(--error);
+            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+        }
 
-    .issue-table th:last-child {
-      border-top-right-radius: var(--radius-control);
-      border-bottom-right-radius: var(--radius-control);
-    }
+        .chevron {
+            color: var(--text3);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
 
-    .issue-table tr:last-child td {
-      border-bottom: none;
-    }
+        details[open] .chevron {
+            transform: rotate(180deg);
+        }
 
-    .url-cell {
-      word-break: break-all;
-      max-width: 400px;
-    }
+        .issue-table-container {
+            overflow-x: auto;
+            margin-top: var(--spacing-md);
+        }
 
-    .url-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
+        .issue-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
 
-    .url-link:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-    
-    .referer-link {
-      color: var(--text3);
-      text-decoration: none;
-      font-size: 12px;
-      display: block;
-      margin-top: 4px;
-    }
+        .issue-table th,
+        .issue-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
 
-    .referer-link:hover {
-      color: var(--text2);
-      text-decoration: underline;
-    }
+        .issue-table th {
+            font-weight: 700;
+            color: var(--text2);
+            background-color: var(--surface2);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
 
-    .detail-cell {
-      color: var(--text2);
-      font-size: 14px;
-    }
+        .issue-table th:first-child {
+            border-top-left-radius: var(--radius-control);
+            border-bottom-left-radius: var(--radius-control);
+        }
 
-    .empty-state {
-      text-align: center;
-      padding: var(--spacing-2xl);
-      color: var(--text3);
-    }
+        .issue-table th:last-child {
+            border-top-right-radius: var(--radius-control);
+            border-bottom-right-radius: var(--radius-control);
+        }
 
-    .empty-icon {
-      font-size: 48px;
-      margin-bottom: var(--spacing-md);
-      opacity: 0.5;
-    }
-    
-    .filter-group {
-      display: flex;
-      gap: var(--spacing-sm);
-      margin-top: var(--spacing-md);
-      margin-bottom: var(--spacing-sm);
-      flex-wrap: wrap;
-    }
+        .issue-table tr:last-child td {
+            border-bottom: none;
+        }
 
-    .filter-btn {
-      background-color: var(--surface3);
-      color: var(--text2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      padding: 6px 16px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+        .url-cell {
+            word-break: break-all;
+            max-width: 400px;
+        }
 
-    .filter-btn:hover {
-      background-color: var(--border);
-      color: var(--text1);
-    }
+        .url-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
 
-    .filter-btn.active {
-      background-color: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
-      box-shadow: 0 2px 10px rgba(0, 181, 226, 0.2);
-    }
+        .url-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
 
-    footer {
-      text-align: center;
-      margin-top: var(--spacing-2xl);
-      color: var(--text4);
-      font-size: 14px;
-    }
-  </style>
+        .referer-link {
+            color: var(--text3);
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .referer-link:hover {
+            color: var(--text2);
+            text-decoration: underline;
+        }
+
+        .detail-cell {
+            color: var(--text2);
+            font-size: 14px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-2xl);
+            color: var(--text3);
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.5;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: var(--surface3);
+            color: var(--text2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 6px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--border);
+            color: var(--text1);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            box-shadow: 0 2px 10px rgba(0, 181, 226, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+            color: var(--text4);
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Digiwin SEO 每週健檢報告</h1>
-      <div class="accent-bar"></div>
-      <div class="subtitle">產生時間：{{ timestamp }} | 爬取頁面總數：{{ total_pages }} | 總問題數：{{ total_issues }}</div>
-    </header>
+    <div class="container">
+        <header>
+            <h1>每週健檢</h1>
+            <div class="accent-bar"></div>
+            <div class="subtitle">產生時間：{{ timestamp }} | 爬取頁面總數：{{ total_pages }} | 總問題數：{{ total_issues }}</div>
+        </header>
 
-    <div class="summary-grid">
-      {% for issue_type, count in summary.items() %}
-      <a href="#issue-{{ issue_type }}" class="summary-card">
-        <div class="summary-value">{{ count }}</div>
-        <div class="summary-label">{{ issue_type }}</div>
-      </a>
-      {% endfor %}
-    </div>
-
-    {% if issues_by_type %}
-      {% for issue_type, items in issues_by_type.items() %}
-      <details class="issue-section" id="issue-{{ issue_type }}" name="issue">
-        <summary>
-          <div class="summary-header">
-            <h2>{{ issue_type }} <span class="badge">{{ items|length }}</span></h2>
-            <span class="chevron">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </div>
-        </summary>
-        {% if issue_type == "H1 異常" %}
-        <div class="filter-group" data-filter-target="H1 異常">
-          <button class="filter-btn active" data-filter="all">全部</button>
-          <button class="filter-btn" data-filter="missing">缺少</button>
-          <button class="filter-btn" data-filter="exceeded">超過</button>
+        <div class="summary-grid">
+            {% for issue_type, count in summary.items() %}
+            <a href="#issue-{{ issue_type }}" class="summary-card">
+                <div class="summary-value">{{ count }}</div>
+                <div class="summary-label">{{ issue_type }}</div>
+            </a>
+            {% endfor %}
         </div>
-        {% elif issue_type == "Description 異常" %}
-        <div class="filter-group" data-filter-target="Description 異常">
-          <button class="filter-btn active" data-filter="all">全部</button>
-          <button class="filter-btn" data-filter="missing">缺少</button>
-          <button class="filter-btn" data-filter="too-short">過短</button>
-          <button class="filter-btn" data-filter="newlines">包含換行/異常字元</button>
+
+        {% if issues_by_type %}
+        {% for issue_type, items in issues_by_type.items() %}
+        <details class="issue-section" id="issue-{{ issue_type }}" name="issue">
+            <summary>
+                <div class="summary-header">
+                    <h2>{{ issue_type }} <span class="badge">{{ items|length }}</span></h2>
+                    <span class="chevron">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </summary>
+            {% if issue_type == "H1 異常" %}
+            <div class="filter-group" data-filter-target="H1 異常">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="missing">缺少</button>
+                <button class="filter-btn" data-filter="exceeded">超過</button>
+            </div>
+            {% elif issue_type == "Description 異常" %}
+            <div class="filter-group" data-filter-target="Description 異常">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="missing">缺少</button>
+                <button class="filter-btn" data-filter="too-short">過短</button>
+                <button class="filter-btn" data-filter="newlines">包含換行/異常字元</button>
+            </div>
+            {% endif %}
+            <div class="issue-table-container">
+                <table class="issue-table">
+                    <thead>
+                        <tr>
+                            <th>受影響的網址</th>
+                            <th>問題詳情</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <td class="url-cell">
+                                <a href="{{ item.url }}" target="_blank" class="url-link">{{ item.url }}</a>
+                                {% if item.referer %}
+                                <a href="{{ item.referer }}" target="_blank" class="referer-link">來源: {{ item.referer
+                                    }}</a>
+                                {% endif %}
+                            </td>
+                            <td class="detail-cell">{{ item.details }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </details>
+        {% endfor %}
+        {% else %}
+        <div class="issue-section empty-state">
+            <div class="empty-icon">✨</div>
+            <h3>太棒了！</h3>
+            <p>本次健檢沒有發現任何 SEO 問題。</p>
         </div>
         {% endif %}
-        <div class="issue-table-container">
-          <table class="issue-table">
-            <thead>
-              <tr>
-                <th>受影響的網址</th>
-                <th>問題詳情</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for item in items %}
-              <tr>
-                <td class="url-cell">
-                  <a href="{{ item.url }}" target="_blank" class="url-link">{{ item.url }}</a>
-                  {% if item.referer %}
-                  <a href="{{ item.referer }}" target="_blank" class="referer-link">來源: {{ item.referer }}</a>
-                  {% endif %}
-                </td>
-                <td class="detail-cell">{{ item.details }}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </details>
-      {% endfor %}
-    {% else %}
-      <div class="issue-section empty-state">
-        <div class="empty-icon">✨</div>
-        <h3>太棒了！</h3>
-        <p>本次健檢沒有發現任何 SEO 問題。</p>
-      </div>
-    {% endif %}
-    
-    <footer>
-      Digiwin Automated SEO Crawler &copy; {{ year }}
-    </footer>
-  </div>
 
-  <script>
-    function openFromHash() {
-      const hash = window.location.hash;
-      if (hash && hash.startsWith('#')) {
-        const id = decodeURIComponent(hash).substring(1);
-        const details = document.getElementById(id);
-        if (details && details.tagName === 'DETAILS') {
-          details.open = true;
-          // Add a brief delay to allow layout to settle before scrolling
-          setTimeout(() => {
-            details.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 50);
-        }
-      }
-    }
+        <footer>
+            Digiwin Automated SEO Crawler &copy; {{ year }}
+        </footer>
+    </div>
 
-    // Add click handler to summary-cards to ensure details element opens
-    document.querySelectorAll('.summary-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        const href = card.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          const id = decodeURIComponent(href).substring(1);
-          const details = document.getElementById(id);
-          if (details && details.tagName === 'DETAILS') {
-            details.open = true;
-          }
-        }
-      });
-    });
-
-    window.addEventListener('hashchange', openFromHash);
-    window.addEventListener('DOMContentLoaded', openFromHash);
-
-    // Filter functionality
-    document.querySelectorAll('.filter-group').forEach(group => {
-      const targetType = group.getAttribute('data-filter-target');
-      const detailsEl = group.closest('details');
-      if (!detailsEl) return;
-      const rows = detailsEl.querySelectorAll('.issue-table tbody tr');
-
-      group.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const filter = btn.getAttribute('data-filter');
-
-          rows.forEach(row => {
-            const detailCell = row.querySelector('.detail-cell');
-            if (!detailCell) return;
-            const detailText = detailCell.textContent;
-            let show = false;
-
-            if (filter === 'all') {
-              show = true;
-            } else if (targetType === 'H1 異常') {
-              if (filter === 'missing' && detailText.includes('缺少')) {
-                show = true;
-              } else if (filter === 'exceeded' && detailText.includes('超過')) {
-                show = true;
-              }
-            } else if (targetType === 'Description 異常') {
-              if (filter === 'missing' && detailText.includes('缺少')) {
-                show = true;
-              } else if (filter === 'too-short' && detailText.includes('過短')) {
-                show = true;
-              } else if (filter === 'newlines' && detailText.includes('包含換行')) {
-                show = true;
-              }
+    <script>
+        function openFromHash() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#')) {
+                const id = decodeURIComponent(hash).substring(1);
+                const details = document.getElementById(id);
+                if (details && details.tagName === 'DETAILS') {
+                    details.open = true;
+                    // Add a brief delay to allow layout to settle before scrolling
+                    setTimeout(() => {
+                        details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                }
             }
+        }
 
-            if (show) {
-              row.style.display = '';
-            } else {
-              row.style.display = 'none';
-            }
-          });
+        // Add click handler to summary-cards to ensure details element opens
+        document.querySelectorAll('.summary-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const href = card.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const id = decodeURIComponent(href).substring(1);
+                    const details = document.getElementById(id);
+                    if (details && details.tagName === 'DETAILS') {
+                        details.open = true;
+                    }
+                }
+            });
         });
-      });
-    });
-  </script>
+
+        window.addEventListener('hashchange', openFromHash);
+        window.addEventListener('DOMContentLoaded', openFromHash);
+
+        // Filter functionality
+        document.querySelectorAll('.filter-group').forEach(group => {
+            const targetType = group.getAttribute('data-filter-target');
+            const detailsEl = group.closest('details');
+            if (!detailsEl) return;
+            const rows = detailsEl.querySelectorAll('.issue-table tbody tr');
+
+            group.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    rows.forEach(row => {
+                        const detailCell = row.querySelector('.detail-cell');
+                        if (!detailCell) return;
+                        const detailText = detailCell.textContent;
+                        let show = false;
+
+                        if (filter === 'all') {
+                            show = true;
+                        } else if (targetType === 'H1 異常') {
+                            if (filter === 'missing' && detailText.includes('缺少')) {
+                                show = true;
+                            } else if (filter === 'exceeded' && detailText.includes('超過')) {
+                                show = true;
+                            }
+                        } else if (targetType === 'Description 異常') {
+                            if (filter === 'missing' && detailText.includes('缺少')) {
+                                show = true;
+                            } else if (filter === 'too-short' && detailText.includes('過短')) {
+                                show = true;
+                            } else if (filter === 'newlines' && detailText.includes('包含換行')) {
+                                show = true;
+                            }
+                        }
+
+                        if (show) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
