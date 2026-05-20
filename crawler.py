@@ -170,6 +170,8 @@ class DigiwinCrawler:
         # 3. Canonical
         canonical_tag = soup.find('link', attrs={'rel': 'canonical'})
         canonical = canonical_tag.get('href', '') if canonical_tag else ""
+        if canonical:
+            canonical = self.normalize_url(urllib.parse.urljoin(url, canonical))
 
         # 4. Vue CSR signatures
         has_vue_csr = 'v-chunk' in html or 'v-if' in html or 'v-bind' in html

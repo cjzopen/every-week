@@ -37,7 +37,9 @@ class SeoAnalyzer:
             
             # 2. Missed in Sitemap
             if url not in self.sitemap_urls:
-                self.add_issue(url, "遺漏於 Sitemap", "網頁無 noindex，卻不在 sitemap.xml 中", referer=referer)
+                canonical = metadata.get("canonical", "")
+                if not canonical or canonical not in self.sitemap_urls:
+                    self.add_issue(url, "遺漏於 Sitemap", "網頁無 noindex，卻不在 sitemap.xml 中", referer=referer)
 
             # 4. Title < 6 chars
             title = metadata.get("title", "")
