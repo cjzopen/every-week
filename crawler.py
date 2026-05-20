@@ -62,8 +62,16 @@ class DigiwinCrawler:
     def normalize_url(self, url):
         parsed = urllib.parse.urlparse(url)
         
+        # Force https scheme for internal domain
+        scheme = parsed.scheme
+        netloc = parsed.netloc
+        if netloc == self.domain or not netloc:
+            scheme = 'https'
+            if not netloc:
+                netloc = self.domain
+        
         # Remove fragment
-        parsed = parsed._replace(fragment='')
+        parsed = parsed._replace(scheme=scheme, netloc=netloc, fragment='')
         
         # Remove tracking query parameters (like utm_*)
         query_params = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
