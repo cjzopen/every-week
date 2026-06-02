@@ -54,21 +54,24 @@ def main():
 
     state_file = 'crawler_state.json'
     completed = False
-    
-    # Check weekly reset
+
+    # Check weekly reset based on the timestamp stored INSIDE the state file.
+    # File mtime is unreliable here because `git checkout` resets it to "now",
+    # which would prevent the weekly crawl from ever restarting.
     if os.path.exists(state_file):
         try:
-            mtime = os.path.getmtime(state_file)
-            age_days = (time.time() - mtime) / (24 * 3600)
-            if age_days > 5:
-                logging.info(f"State file is {age_days:.1f} days old. Starting fresh weekly crawl.")
+            with open(state_file, 'r', encoding='utf-8') as f:
+                saved_ts = json.load(f).get("timestamp", 0)
+            age_days = (time.time() - saved_ts) / (24 * 3600)
+            if age_days > 3:
+                logging.info(f"State is {age_days:.1f} days old (> 3 days). Starting fresh weekly crawl.")
                 os.remove(state_file)
         except Exception as e:
             logging.error(f"Failed to check/remove old state file: {e}")
 
     crawler = DigiwinCrawler(max_pages=0)
 
-    # Load state if exists
+    # Load state if it still exists after the freshness check
     if os.path.exists(state_file):
         logging.info(f"Found existing state file: {state_file}")
         state = crawler.load_state(state_file)
