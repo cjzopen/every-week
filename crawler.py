@@ -96,11 +96,7 @@ class DigiwinCrawler:
         new_query = urllib.parse.urlencode(filtered_params)
         parsed = parsed._replace(query=new_query)
         
-        # Ensure it ends with a standard format if needed, but here we just rebuild
-        # Also remove trailing slash for consistency (unless it's just the root domain)
         normalized = urllib.parse.urlunparse(parsed)
-        if normalized != self.base_url + "/" and normalized.endswith('/'):
-            normalized = normalized[:-1]
             
         return normalized
 
