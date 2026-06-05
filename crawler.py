@@ -62,6 +62,10 @@ class DigiwinCrawler:
     def normalize_url(self, url):
         parsed = urllib.parse.urlparse(url)
         
+        # Don't try to normalize non-http/https protocols
+        if parsed.scheme and parsed.scheme not in ['http', 'https']:
+            return url
+        
         # Force https scheme for internal domain
         scheme = parsed.scheme
         netloc = parsed.netloc

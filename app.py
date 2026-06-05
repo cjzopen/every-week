@@ -4,6 +4,7 @@ import logging
 import subprocess
 import time
 import sys
+import argparse
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 from crawler import DigiwinCrawler
@@ -11,7 +12,7 @@ from analyzer import SeoAnalyzer
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def generate_report(issues, total_pages):
+def generate_report(issues, total_pages, report_file='index.html'):
     # Group issues by type
     issues_by_type = {}
     summary = {}
@@ -45,14 +46,21 @@ def generate_report(issues, total_pages):
         issues_by_type=issues_by_type
     )
 
-    with open('index.html', 'w', encoding='utf-8') as f:
+    with open(report_file, 'w', encoding='utf-8') as f:
         f.write(html_content)
-    logging.info("Report generated successfully: index.html")
+    logging.info(f"Report generated successfully: {report_file}")
 
 def main():
-    logging.info("Starting weekly SEO check...")
+    parser = argparse.ArgumentParser(description="SEO Crawler")
+    parser.add_argument('--url', default="https://www.digiwin.com.tw/", help="Start URL to crawl")
+    parser.add_argument('--report', default="index.html", help="Output report HTML file")
+    parser.add_argument('--state', default="crawler_state.json", help="Output state JSON file")
+    parser.add_argument('--issues', default="issues.json", help="Output issues JSON file")
+    args = parser.parse_args()
 
-    state_file = 'crawler_state.json'
+    logging.info(f"Starting weekly SEO check for {args.url}...")
+
+    state_file = args.state
     completed = False
 
     # Check weekly reset based on the timestamp stored INSIDE the state file.
@@ -69,7 +77,7 @@ def main():
         except Exception as e:
             logging.error(f"Failed to check/remove old state file: {e}")
 
-    crawler = DigiwinCrawler(max_pages=0)
+    crawler = DigiwinCrawler(start_url=args.url, max_pages=0)
 
     # Load state if it still exists after the freshness check
     if os.path.exists(state_file):
@@ -85,18 +93,18 @@ def main():
 
         analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
         issues = analyzer.analyze()
-        generate_report(issues, len(pages_data))
+        generate_report(issues, len(pages_data), args.report)
         logging.info(f"Intermediate report updated ({len(pages_data)} pages crawled so far)")
         try:
-            subprocess.run(["git", "add", "index.html", state_file], check=True)
+            subprocess.run(["git", "add", args.report, state_file], check=True)
             result = subprocess.run(
                 ["git", "diff", "--staged", "--quiet"],
                 capture_output=True
             )
             if result.returncode != 0:
-                subprocess.run(["git", "commit", "-m", f"Progress: {len(pages_data)} pages crawled (Queue: {len(crawler.queue)})"], check=True)
+                subprocess.run(["git", "commit", "-m", f"Progress for {args.report}: {len(pages_data)} pages crawled (Queue: {len(crawler.queue)})"], check=True)
                 subprocess.run(["git", "push"], check=True)
-                logging.info(f"Pushed intermediate index.html and state at {len(pages_data)} pages")
+                logging.info(f"Pushed intermediate {args.report} and state at {len(pages_data)} pages")
         except subprocess.CalledProcessError as e:
             logging.warning(f"Git push skipped (not in CI or git error): {e}")
 
@@ -114,10 +122,10 @@ def main():
     analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
     issues = analyzer.analyze()
 
-    with open('issues.json', 'w', encoding='utf-8') as f:
+    with open(args.issues, 'w', encoding='utf-8') as f:
         json.dump(issues, f, ensure_ascii=False, indent=2)
 
-    generate_report(issues, len(pages_data))
+    generate_report(issues, len(pages_data), args.report)
     
 if __name__ == "__main__":
     main()

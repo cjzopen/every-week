@@ -1,0 +1,38 @@
+name: Weekly Update Infra
+
+on:
+  schedule:
+    - cron: '0 15 * * 1,2'  # 每週一、二 23:00 台北時間 (UTC+8)
+  workflow_dispatch:       # 也可以手動觸發
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run script
+        run: python app.py --url "https://techops.digiwin.com/" --report infra.html --state infra_crawler_state.json --issues infra_issues.json
+
+      - name: Commit & Push
+        run: |
+          git add .
+          git diff --staged --quiet || git commit -m "Weekly update infra"
+          git push
