@@ -11,11 +11,12 @@ import json
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class DigiwinCrawler:
-    def __init__(self, start_url="https://www.digiwin.com.tw/", max_pages=0):
+    def __init__(self, start_url="https://www.digiwin.com.tw/", max_pages=0, sitemap_url=None):
         self.start_url = start_url
         self.domain = urllib.parse.urlparse(start_url).netloc
         self.base_url = f"https://{self.domain}"
         self.max_pages = max_pages
+        self.sitemap_url = sitemap_url if sitemap_url else urllib.parse.urljoin(self.base_url, "/sitemap.xml")
         
         self.visited = set()
         self.queue = [] # list of dicts: {"url": url, "referer": referer}
@@ -41,8 +42,7 @@ class DigiwinCrawler:
         except Exception as e:
             logging.error(f"Failed to read robots.txt: {e}")
 
-    def load_sitemap(self):
-        sitemap_url = urllib.parse.urljoin(self.base_url, "/sitemap.xml")
+    def _parse_sitemap(self, sitemap_url):
         logging.info(f"Loading sitemap from {sitemap_url}")
         try:
             response = self.session.get(sitemap_url, timeout=15)
@@ -51,13 +51,25 @@ class DigiwinCrawler:
             root = ET.fromstring(response.content)
             # Handle XML namespaces correctly
             namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
-            for loc in root.findall('.//ns:loc', namespaces):
-                if loc.text:
-                    normalized = self.normalize_url(loc.text)
-                    self.sitemap_urls.add(normalized)
-            logging.info(f"Found {len(self.sitemap_urls)} URLs in sitemap.")
+            
+            # Check if it's a sitemap index
+            if root.tag.endswith('sitemapindex'):
+                for sitemap in root.findall('.//ns:sitemap', namespaces):
+                    loc = sitemap.find('ns:loc', namespaces)
+                    if loc is not None and loc.text:
+                        self._parse_sitemap(loc.text)
+            else:
+                # It's a standard urlset
+                for loc in root.findall('.//ns:loc', namespaces):
+                    if loc is not None and loc.text:
+                        normalized = self.normalize_url(loc.text)
+                        self.sitemap_urls.add(normalized)
         except Exception as e:
-            logging.error(f"Failed to load or parse sitemap: {e}")
+            logging.error(f"Failed to load or parse sitemap {sitemap_url}: {e}")
+
+    def load_sitemap(self):
+        self._parse_sitemap(self.sitemap_url)
+        logging.info(f"Found {len(self.sitemap_urls)} URLs in all sitemaps.")
 
     def normalize_url(self, url):
         parsed = urllib.parse.urlparse(url)

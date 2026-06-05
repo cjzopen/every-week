@@ -4,12 +4,13 @@ import urllib.parse
 import logging
 
 class SeoAnalyzer:
-    def __init__(self, pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser):
+    def __init__(self, pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser, expected_gtm="GTM-MRWJL2"):
         self.pages_data = pages_data
         self.sitemap_urls = sitemap_urls
         self.broken_links = broken_links
         self.skipped_pages = skipped_pages
         self.robot_parser = robot_parser
+        self.expected_gtm = expected_gtm
         self.issues = []
 
     def add_issue(self, url, issue_type, details, referer=None):
@@ -79,9 +80,9 @@ class SeoAnalyzer:
             if not gtm_scripts:
                 self.add_issue(url, "GTM 異常", "未發現 any GTM 代碼")
             else:
-                if 'GTM-MRWJL2' not in gtm_scripts:
-                    self.add_issue(url, "GTM 異常", f"缺少指定的 GTM-MRWJL2 (找到: {', '.join(set(gtm_scripts))})")
-                other_gtms = [g for g in set(gtm_scripts) if g != 'GTM-MRWJL2']
+                if self.expected_gtm not in gtm_scripts:
+                    self.add_issue(url, "GTM 異常", f"缺少指定的 {self.expected_gtm} (找到: {', '.join(set(gtm_scripts))})")
+                other_gtms = [g for g in set(gtm_scripts) if g != self.expected_gtm]
                 if other_gtms:
                     self.add_issue(url, "GTM 異常", f"混雜了其他的 GTM ID: {', '.join(other_gtms)}")
 

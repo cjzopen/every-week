@@ -56,6 +56,8 @@ def main():
     parser.add_argument('--report', default="index.html", help="Output report HTML file")
     parser.add_argument('--state', default="crawler_state.json", help="Output state JSON file")
     parser.add_argument('--issues', default="issues.json", help="Output issues JSON file")
+    parser.add_argument('--sitemap', default=None, help="Custom sitemap URL")
+    parser.add_argument('--gtm', default="GTM-MRWJL2", help="Expected GTM ID")
     args = parser.parse_args()
 
     logging.info(f"Starting weekly SEO check for {args.url}...")
@@ -77,7 +79,7 @@ def main():
         except Exception as e:
             logging.error(f"Failed to check/remove old state file: {e}")
 
-    crawler = DigiwinCrawler(start_url=args.url, max_pages=0)
+    crawler = DigiwinCrawler(start_url=args.url, max_pages=0, sitemap_url=args.sitemap)
 
     # Load state if it still exists after the freshness check
     if os.path.exists(state_file):
@@ -91,7 +93,7 @@ def main():
         # Save current state first
         crawler.save_state(state_file, completed=False)
 
-        analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
+        analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser, expected_gtm=args.gtm)
         issues = analyzer.analyze()
         generate_report(issues, len(pages_data), args.report)
         logging.info(f"Intermediate report updated ({len(pages_data)} pages crawled so far)")
@@ -119,7 +121,7 @@ def main():
     completed = len(crawler.queue) == 0
     crawler.save_state(state_file, completed=completed)
 
-    analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser)
+    analyzer = SeoAnalyzer(pages_data, sitemap_urls, broken_links, skipped_pages, robot_parser, expected_gtm=args.gtm)
     issues = analyzer.analyze()
 
     with open(args.issues, 'w', encoding='utf-8') as f:

@@ -29,7 +29,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Run script
-        run: python app.py --url "https://techops.digiwin.com/" --report infra.html --state infra_crawler_state.json --issues infra_issues.json
+        run: python app.py --url "https://techops.digiwin.com/" --report infra.html --state infra_crawler_state.json --issues infra_issues.json --sitemap "https://techops.digiwin.com/sitemap_index.xml" --gtm "GTM-TSGZJK9"
 
       - name: Commit & Push
         run: |
