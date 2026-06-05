@@ -1,0 +1,359 @@
+{
+  "completed": true,
+  "timestamp": 1780622084.9060388,
+  "visited": [
+    "https://techops.digiwin.com/solution-source-code-analysis",
+    "https://techops.digiwin.com/issue-vulnerability-patch-management",
+    "https://techops.digiwin.com/issue-infosec-standard",
+    "https://techops.digiwin.com/category/activity",
+    "https://techops.digiwin.com/contact",
+    "https://techops.digiwin.com/solution-soc-security-operation-center",
+    "https://techops.digiwin.com/telecommuting",
+    "https://techops.digiwin.com/safety-0-day-attack",
+    "https://techops.digiwin.com/",
+    "https://techops.digiwin.com/solution-tr7",
+    "https://techops.digiwin.com/solution-ot/ ",
+    "https://techops.digiwin.com/solution-ips-intrusion-prevention-system",
+    "https://techops.digiwin.com/solution-cirs",
+    "https://techops.digiwin.com/spam",
+    "https://techops.digiwin.com/how-to-detect",
+    "https://techops.digiwin.com/category/blog",
+    "https://techops.digiwin.com/solution-security-regulation",
+    "https://techops.digiwin.com/solution-edr",
+    "https://techops.digiwin.com/category/news",
+    "https://techops.digiwin.com/issue-sensitive-doc-mgmt-audit",
+    "https://techops.digiwin.com/category/backup",
+    "https://techops.digiwin.com/solution-ot",
+    "https://techops.digiwin.com/omc",
+    "https://techops.digiwin.com/solution-pam-privileged-access-management",
+    "https://techops.digiwin.com/solution-vulnerability-management",
+    "https://techops.digiwin.com/esg_cr_cloud",
+    "https://techops.digiwin.com/solution-information-security-protection-response",
+    "https://techops.digiwin.com/howtodo_cloud",
+    "https://techops.digiwin.com/legal",
+    "https://techops.digiwin.com/agentic-ai",
+    "https://techops.digiwin.com/issue-information-security-management",
+    "https://techops.digiwin.com/solution-social-engineering",
+    "https://techops.digiwin.com/how-to-protect",
+    "https://techops.digiwin.com/category/cloud",
+    "https://techops.digiwin.com/issue-personal-data-security-maintenance",
+    "https://techops.digiwin.com/solution-network",
+    "https://techops.digiwin.com/category/case",
+    "https://techops.digiwin.com/solution-mfa-multi-factor-authentication",
+    "https://techops.digiwin.com/iso27001-consultant",
+    "https://techops.digiwin.com/category/mail",
+    "https://techops.digiwin.com/solution-waf-web-application-firewall",
+    "https://techops.digiwin.com/solution-ransomware-decryption",
+    "https://techops.digiwin.com/solution-dlp-data-loss-prevention",
+    "https://techops.digiwin.com/solution-disaster-recovery",
+    "https://techops.digiwin.com/solution-risk-assessment",
+    "https://techops.digiwin.com/issue-data-export-import",
+    "https://techops.digiwin.com/supply-chain-cyber-security",
+    "https://techops.digiwin.com/security-protection-challenge",
+    "https://techops.digiwin.com/category/security",
+    "https://techops.digiwin.com/solution-backup",
+    "https://techops.digiwin.com/how-to-recover",
+    "https://techops.digiwin.com/issue-cloud-hosting",
+    "https://techops.digiwin.com/solution-production-line-security",
+    "https://techops.digiwin.com/solution-iso27701-consultant",
+    "https://techops.digiwin.com/solution-easm-external-attack-surface-management",
+    "https://techops.digiwin.com/aboutus",
+    "https://techops.digiwin.com/cybersecurity-assessment",
+    "https://techops.digiwin.com/online-event-ghost",
+    "https://techops.digiwin.com/vulnerability-assessment",
+    "https://techops.digiwin.com/issue-pam-privileged-access-management",
+    "https://techops.digiwin.com/solution-security-course",
+    "https://techops.digiwin.com/category/regulation",
+    "https://techops.digiwin.com/aieom",
+    "https://techops.digiwin.com/solution-it-outsourcing",
+    "https://techops.digiwin.com/solution-penetration-test"
+  ],
+  "queue": [],
+  "pages_data": {
+    "https://techops.digiwin.com/": {
+      "metadata": {
+        "title": "打造資訊安全織網，確保企業營運持續 | 鼎新資安",
+        "description": "鼎新資安服務提供客製化方案，結合AI智管家平台，一站管理資安設備，確保合規與資訊安全，提升IT管理效能，助企業穩健營運。",
+        "canonical": "https://techops.digiwin.com/",
+        "has_vue_csr": false,
+        "has_viewport": true,
+        "has_big5": false,
+        "gtms": [
+          "GTM-TSGZJK9"
+        ],
+        "h1_count": 2,
+        "internal_links": [
+          "https://techops.digiwin.com/solution-source-code-analysis",
+          "https://techops.digiwin.com/issue-vulnerability-patch-management",
+          "https://techops.digiwin.com/issue-infosec-standard",
+          "https://techops.digiwin.com/category/activity",
+          "https://techops.digiwin.com/contact",
+          "https://techops.digiwin.com/solution-soc-security-operation-center",
+          "https://techops.digiwin.com/telecommuting",
+          "https://techops.digiwin.com/safety-0-day-attack",
+          "https://techops.digiwin.com/",
+          "https://techops.digiwin.com/solution-tr7",
+          "https://techops.digiwin.com/solution-ot/ ",
+          "https://techops.digiwin.com/solution-ips-intrusion-prevention-system",
+          "https://techops.digiwin.com/solution-cirs",
+          "https://techops.digiwin.com/how-to-detect",
+          "https://techops.digiwin.com/category/blog",
+          "https://techops.digiwin.com/solution-security-regulation",
+          "https://techops.digiwin.com/solution-edr",
+          "https://techops.digiwin.com/category/news",
+          "https://techops.digiwin.com/issue-sensitive-doc-mgmt-audit",
+          "https://techops.digiwin.com/category/backup",
+          "https://techops.digiwin.com/solution-ot",
+          "https://techops.digiwin.com/omc",
+          "https://techops.digiwin.com/solution-pam-privileged-access-management",
+          "https://techops.digiwin.com/solution-vulnerability-management",
+          "https://techops.digiwin.com/esg_cr_cloud",
+          "https://techops.digiwin.com/solution-information-security-protection-response",
+          "https://techops.digiwin.com/howtodo_cloud",
+          "https://techops.digiwin.com/legal",
+          "https://techops.digiwin.com/agentic-ai",
+          "https://techops.digiwin.com/issue-information-security-management",
+          "https://techops.digiwin.com/solution-social-engineering",
+          "https://techops.digiwin.com/how-to-protect",
+          "https://techops.digiwin.com/category/cloud",
+          "https://techops.digiwin.com/issue-personal-data-security-maintenance",
+          "https://techops.digiwin.com/solution-it-outsourcing",
+          "https://techops.digiwin.com/solution-network",
+          "https://techops.digiwin.com/category/case",
+          "https://techops.digiwin.com/solution-mfa-multi-factor-authentication",
+          "https://techops.digiwin.com/iso27001-consultant",
+          "https://techops.digiwin.com/category/mail",
+          "https://techops.digiwin.com/solution-waf-web-application-firewall",
+          "https://techops.digiwin.com/solution-ransomware-decryption",
+          "https://techops.digiwin.com/solution-dlp-data-loss-prevention",
+          "https://techops.digiwin.com/solution-disaster-recovery",
+          "https://techops.digiwin.com/solution-risk-assessment",
+          "https://techops.digiwin.com/issue-data-export-import",
+          "https://techops.digiwin.com/supply-chain-cyber-security",
+          "https://techops.digiwin.com/security-protection-challenge",
+          "https://techops.digiwin.com/category/security",
+          "https://techops.digiwin.com/solution-backup",
+          "https://techops.digiwin.com/how-to-recover",
+          "https://techops.digiwin.com/issue-cloud-hosting",
+          "https://techops.digiwin.com/solution-production-line-security",
+          "https://techops.digiwin.com/solution-iso27701-consultant",
+          "https://techops.digiwin.com/solution-easm-external-attack-surface-management",
+          "https://techops.digiwin.com/aboutus",
+          "https://techops.digiwin.com/cybersecurity-assessment",
+          "https://techops.digiwin.com/online-event-ghost",
+          "https://techops.digiwin.com/vulnerability-assessment",
+          "https://techops.digiwin.com/issue-pam-privileged-access-management",
+          "https://techops.digiwin.com/solution-security-course",
+          "https://techops.digiwin.com/category/regulation",
+          "https://techops.digiwin.com/aieom",
+          "https://techops.digiwin.com/spam",
+          "https://techops.digiwin.com/solution-penetration-test"
+        ]
+      },
+      "referer": null
+    }
+  },
+  "sitemap_urls": [
+    "https://techops.digiwin.com/post_tag-sitemap.xml",
+    "https://techops.digiwin.com/page-sitemap.xml",
+    "https://techops.digiwin.com/author-sitemap.xml",
+    "https://techops.digiwin.com/table_tags-sitemap.xml",
+    "https://techops.digiwin.com/category-sitemap.xml",
+    "https://techops.digiwin.com/post-sitemap.xml"
+  ],
+  "broken_links": [],
+  "skipped_pages": {
+    "https://techops.digiwin.com/solution-source-code-analysis": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-source-code-analysis"
+    },
+    "https://techops.digiwin.com/issue-vulnerability-patch-management": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-vulnerability-patch-management"
+    },
+    "https://techops.digiwin.com/issue-infosec-standard": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-infosec-standard"
+    },
+    "https://techops.digiwin.com/category/activity": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/activity"
+    },
+    "https://techops.digiwin.com/contact": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/contact"
+    },
+    "https://techops.digiwin.com/solution-soc-security-operation-center": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-soc-security-operation-center"
+    },
+    "https://techops.digiwin.com/telecommuting": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/telecommuting"
+    },
+    "https://techops.digiwin.com/safety-0-day-attack": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/safety-0-day-attack"
+    },
+    "https://techops.digiwin.com/solution-tr7": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-tr7"
+    },
+    "https://techops.digiwin.com/solution-ot/ ": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-ot"
+    },
+    "https://techops.digiwin.com/solution-ips-intrusion-prevention-system": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-ips-intrusion-prevention-system"
+    },
+    "https://techops.digiwin.com/solution-cirs": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-cirs"
+    },
+    "https://techops.digiwin.com/how-to-detect": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/how-to-detect"
+    },
+    "https://techops.digiwin.com/category/blog": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/blog"
+    },
+    "https://techops.digiwin.com/solution-security-regulation": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-security-regulation"
+    },
+    "https://techops.digiwin.com/solution-edr": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-edr"
+    },
+    "https://techops.digiwin.com/category/news": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/news"
+    },
+    "https://techops.digiwin.com/issue-sensitive-doc-mgmt-audit": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-sensitive-doc-mgmt-audit"
+    },
+    "https://techops.digiwin.com/category/backup": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/backup"
+    },
+    "https://techops.digiwin.com/solution-ot": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-ot"
+    },
+    "https://techops.digiwin.com/omc": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/omc"
+    },
+    "https://techops.digiwin.com/solution-pam-privileged-access-management": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-pam-privileged-access-management"
+    },
+    "https://techops.digiwin.com/solution-vulnerability-management": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-vulnerability-management"
+    },
+    "https://techops.digiwin.com/esg_cr_cloud": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/esg_cr_cloud"
+    },
+    "https://techops.digiwin.com/solution-information-security-protection-response": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-information-security-protection-response"
+    },
+    "https://techops.digiwin.com/howtodo_cloud": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/howtodo_cloud"
+    },
+    "https://techops.digiwin.com/legal": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/legal"
+    },
+    "https://techops.digiwin.com/agentic-ai": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/agentic-ai"
+    },
+    "https://techops.digiwin.com/issue-information-security-management": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-information-security-management"
+    },
+    "https://techops.digiwin.com/solution-social-engineering": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-social-engineering"
+    },
+    "https://techops.digiwin.com/how-to-protect": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/how-to-protect"
+    },
+    "https://techops.digiwin.com/category/cloud": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/cloud"
+    },
+    "https://techops.digiwin.com/issue-personal-data-security-maintenance": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-personal-data-security-maintenance"
+    },
+    "https://techops.digiwin.com/solution-it-outsourcing": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-it-outsourcing"
+    },
+    "https://techops.digiwin.com/solution-network": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-network"
+    },
+    "https://techops.digiwin.com/category/case": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/case"
+    },
+    "https://techops.digiwin.com/solution-mfa-multi-factor-authentication": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-mfa-multi-factor-authentication"
+    },
+    "https://techops.digiwin.com/iso27001-consultant": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/iso27001-consultant"
+    },
+    "https://techops.digiwin.com/category/mail": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/mail"
+    },
+    "https://techops.digiwin.com/solution-waf-web-application-firewall": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-waf-web-application-firewall"
+    },
+    "https://techops.digiwin.com/solution-ransomware-decryption": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-ransomware-decryption"
+    },
+    "https://techops.digiwin.com/solution-dlp-data-loss-prevention": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-dlp-data-loss-prevention"
+    },
+    "https://techops.digiwin.com/solution-disaster-recovery": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-disaster-recovery"
+    },
+    "https://techops.digiwin.com/solution-risk-assessment": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-risk-assessment"
+    },
+    "https://techops.digiwin.com/issue-data-export-import": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-data-export-import"
+    },
+    "https://techops.digiwin.com/supply-chain-cyber-security": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/supply-chain-cyber-security"
+    },
+    "https://techops.digiwin.com/security-protection-challenge": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/security-protection-challenge"
+    },
+    "https://techops.digiwin.com/category/security": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/security"
+    },
+    "https://techops.digiwin.com/solution-backup": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-backup"
+    },
+    "https://techops.digiwin.com/how-to-recover": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/how-to-recover"
+    },
+    "https://techops.digiwin.com/issue-cloud-hosting": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-cloud-hosting"
+    },
+    "https://techops.digiwin.com/solution-production-line-security": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-production-line-security"
+    },
+    "https://techops.digiwin.com/solution-iso27701-consultant": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-iso27701-consultant"
+    },
+    "https://techops.digiwin.com/solution-easm-external-attack-surface-management": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-easm-external-attack-surface-management"
+    },
+    "https://techops.digiwin.com/aboutus": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/aboutus"
+    },
+    "https://techops.digiwin.com/cybersecurity-assessment": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/cybersecurity-assessment"
+    },
+    "https://techops.digiwin.com/online-event-ghost": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/online-event-ghost"
+    },
+    "https://techops.digiwin.com/vulnerability-assessment": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/vulnerability-assessment"
+    },
+    "https://techops.digiwin.com/issue-pam-privileged-access-management": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/issue-pam-privileged-access-management"
+    },
+    "https://techops.digiwin.com/solution-security-course": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-security-course"
+    },
+    "https://techops.digiwin.com/category/regulation": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/category/regulation"
+    },
+    "https://techops.digiwin.com/aieom": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/aieom"
+    },
+    "https://techops.digiwin.com/spam": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/spam"
+    },
+    "https://techops.digiwin.com/solution-penetration-test": {
+      "reason": "Redirected to internal URL: https://techops.digiwin.com/solution-penetration-test"
+    }
+  }
+}
