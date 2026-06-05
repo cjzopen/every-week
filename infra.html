@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>每週爬蟲</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Hololive Shop Inspired Tokens */
+            --bg: #F0F4F8;
+            --surface1: #FFFFFF;
+            --surface2: #FAFAFA;
+            --surface3: #F1F5F9;
+            --border: #E2E8F0;
+            --border-visible: #CBD5E1;
+
+            --text1: #0F172A;
+            --text2: #334155;
+            --text3: #64748B;
+            --text4: #94A3B8;
+
+            --accent: #00B5E2;
+            /* Hololive Cyan */
+            --accent-subtle: #E0F7FA;
+            --accent-hover: #0098C0;
+
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --error-subtle: #FEE2E2;
+
+            /* Typography */
+            --font-family: 'Noto Sans TC', sans-serif;
+
+            /* Radii */
+            --radius-element: 8px;
+            --radius-control: 12px;
+            --radius-component: 24px;
+            --radius-pill: 999px;
+
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+
+            /* Shadows */
+            --shadow-subtle: 0 4px 20px rgba(0, 181, 226, 0.08);
+            --shadow-card: 0 8px 30px rgba(15, 23, 42, 0.04);
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg);
+            color: var(--text1);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--text1);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text3);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .accent-bar {
+            width: 60px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: var(--radius-pill);
+            margin: var(--spacing-md) auto;
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .summary-card {
+            background-color: var(--surface1);
+            border-radius: var(--radius-component);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-subtle);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .summary-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .summary-label {
+            color: var(--text2);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* Issues Section */
+        .issue-section {
+            background-color: var(--surface1);
+            border-radius: var(--radius-component);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-card);
+            margin-bottom: var(--spacing-xl);
+            border: 2px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .issue-section summary {
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .issue-section summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .summary-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text1);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .summary-header h2 .badge {
+            background-color: var(--error-subtle);
+            color: var(--error);
+            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+        }
+
+        .chevron {
+            color: var(--text3);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        details[open] .chevron {
+            transform: rotate(180deg);
+        }
+
+        .issue-table-container {
+            overflow-x: auto;
+            margin-top: var(--spacing-md);
+        }
+
+        .issue-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .issue-table th,
+        .issue-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .issue-table th {
+            font-weight: 700;
+            color: var(--text2);
+            background-color: var(--surface2);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        .issue-table th:first-child {
+            border-top-left-radius: var(--radius-control);
+            border-bottom-left-radius: var(--radius-control);
+        }
+
+        .issue-table th:last-child {
+            border-top-right-radius: var(--radius-control);
+            border-bottom-right-radius: var(--radius-control);
+        }
+
+        .issue-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .url-cell {
+            word-break: break-all;
+            max-width: 400px;
+        }
+
+        .url-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .url-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .referer-link {
+            color: var(--text3);
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .referer-link:hover {
+            color: var(--text2);
+            text-decoration: underline;
+        }
+
+        .detail-cell {
+            color: var(--text2);
+            font-size: 14px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-2xl);
+            color: var(--text3);
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.5;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: var(--surface3);
+            color: var(--text2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 6px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--border);
+            color: var(--text1);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            box-shadow: 0 2px 10px rgba(0, 181, 226, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+            color: var(--text4);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>每週健檢</h1>
+            <div class="accent-bar"></div>
+            <div class="subtitle">產生時間：2026-06-05 01:29:57 | 爬取頁面總數：1 | 總問題數：323</div>
+        </header>
+
+        <div class="summary-grid">
+            
+            <a href="#issue-孤兒網頁" class="summary-card">
+                <div class="summary-value">322</div>
+                <div class="summary-label">孤兒網頁</div>
+            </a>
+            
+            <a href="#issue-H1 異常" class="summary-card">
+                <div class="summary-value">1</div>
+                <div class="summary-label">H1 異常</div>
+            </a>
+            
+        </div>
+
+        
+        
+        <details class="issue-section" id="issue-孤兒網頁" name="issue">
+            <summary>
+                <div class="summary-header">
+                    <h2>孤兒網頁 <span class="badge">322</span></h2>
+                    <span class="chevron">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </summary>
+            
+            <div class="issue-table-container">
+                <table class="issue-table">
+                    <thead>
+                        <tr>
+                            <th>受影響的網址</th>
+                            <th>問題詳情</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/chatgptsecurity" target="_blank" class="url-link">https://techops.digiwin.com/chatgptsecurity</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/distribution-industry-security-supply-chain-2025-2026-risk-report" target="_blank" class="url-link">https://techops.digiwin.com/distribution-industry-security-supply-chain-2025-2026-risk-report</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/pltot-s" target="_blank" class="url-link">https://techops.digiwin.com/pltot-s</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%a0%94%e8%a8%8e%e6%9c%83" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%a0%94%e8%a8%8e%e6%9c%83</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92%e9%98%b2%e8%ad%b7" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92%e9%98%b2%e8%ad%b7</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ai-%e8%b3%87%e5%ae%89%e7%b6%ad%e9%81%8b" target="_blank" class="url-link">https://techops.digiwin.com/tag/ai-%e8%b3%87%e5%ae%89%e7%b6%ad%e9%81%8b</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cloud-digiwin-metaage-aws" target="_blank" class="url-link">https://techops.digiwin.com/cloud-digiwin-metaage-aws</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%a4%be%e4%ba%a4%e5%b7%a5%e7%a8%8b%e6%bc%94%e7%b7%b4" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%a4%be%e4%ba%a4%e5%b7%a5%e7%a8%8b%e6%bc%94%e7%b7%b4</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%bb%b2%e9%80%8f%e6%b8%ac%e8%a9%a6" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%bb%b2%e9%80%8f%e6%b8%ac%e8%a9%a6</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%a8%81%e8%84%85" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%a8%81%e8%84%85</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/backupshield" target="_blank" class="url-link">https://techops.digiwin.com/backupshield</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-how-to-get-iso27001" target="_blank" class="url-link">https://techops.digiwin.com/event-how-to-get-iso27001</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/author/sylvia" target="_blank" class="url-link">https://techops.digiwin.com/author/sylvia</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cybersecurity-trends-ai-agent" target="_blank" class="url-link">https://techops.digiwin.com/cybersecurity-trends-ai-agent</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%8a%a0%e5%af%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%8a%a0%e5%af%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ransomware-prevention" target="_blank" class="url-link">https://techops.digiwin.com/ransomware-prevention</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/databreach" target="_blank" class="url-link">https://techops.digiwin.com/databreach</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/factory-network" target="_blank" class="url-link">https://techops.digiwin.com/factory-network</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/bigcve2021" target="_blank" class="url-link">https://techops.digiwin.com/bigcve2021</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/iso27001-latest-fee" target="_blank" class="url-link">https://techops.digiwin.com/iso27001-latest-fee</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%a2%a8%e9%9a%aa%e6%8e%a7%e7%ae%a1" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%a2%a8%e9%9a%aa%e6%8e%a7%e7%ae%a1</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%97%85%e6%af%92" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%97%85%e6%af%92</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/sale-backup-recovery" target="_blank" class="url-link">https://techops.digiwin.com/sale-backup-recovery</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%b8%ad%e5%b0%8f%e4%bc%81%e6%a5%ad" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%b8%ad%e5%b0%8f%e4%bc%81%e6%a5%ad</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/table_tags/%e7%b6%b2%e8%b7%af%e6%96%b7%e6%96%b7%e7%ba%8c%e7%ba%8c" target="_blank" class="url-link">https://techops.digiwin.com/table_tags/%e7%b6%b2%e8%b7%af%e6%96%b7%e6%96%b7%e7%ba%8c%e7%ba%8c</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/mfa%e5%a4%9a%e5%9b%a0%e5%ad%90%e9%a9%97%e8%ad%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/mfa%e5%a4%9a%e5%9b%a0%e5%ad%90%e9%a9%97%e8%ad%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221026" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221026</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_network-security" target="_blank" class="url-link">https://techops.digiwin.com/activity_network-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/information-security-audit" target="_blank" class="url-link">https://techops.digiwin.com/information-security-audit</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-soc" target="_blank" class="url-link">https://techops.digiwin.com/what-is-soc</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92%e9%98%b2%e7%a6%a6" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92%e9%98%b2%e7%a6%a6</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%a3%bd%e9%80%a0%e6%a5%ad" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%a3%bd%e9%80%a0%e6%a5%ad</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-eos-risk" target="_blank" class="url-link">https://techops.digiwin.com/event-eos-risk</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ai-phishing-emails" target="_blank" class="url-link">https://techops.digiwin.com/ai-phishing-emails</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/author/stevenwang" target="_blank" class="url-link">https://techops.digiwin.com/author/stevenwang</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/citrix" target="_blank" class="url-link">https://techops.digiwin.com/tag/citrix</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mis-engineer-and-cyber-security" target="_blank" class="url-link">https://techops.digiwin.com/mis-engineer-and-cyber-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/mdr" target="_blank" class="url-link">https://techops.digiwin.com/tag/mdr</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221206" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221206</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cyber-compliance-2026" target="_blank" class="url-link">https://techops.digiwin.com/cyber-compliance-2026</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220923" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220923</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e8%b3%87%e5%ae%89%e5%8d%b1%e6%a9%9f" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e8%b3%87%e5%ae%89%e5%8d%b1%e6%a9%9f</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-supplychain-security-audit" target="_blank" class="url-link">https://techops.digiwin.com/event-supplychain-security-audit</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%aa%a2%e6%b8%ac" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%aa%a2%e6%b8%ac</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/author/yu1526" target="_blank" class="url-link">https://techops.digiwin.com/author/yu1526</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/mdm" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/mdm</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/zerotrust" target="_blank" class="url-link">https://techops.digiwin.com/zerotrust</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%a2%a8%e9%9a%aa" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%a2%a8%e9%9a%aa</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221012" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221012</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%b6%b2%e8%b7%af%e7%ae%a1%e7%90%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%b6%b2%e8%b7%af%e7%ae%a1%e7%90%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%90%88%e8%a6%8f" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%90%88%e8%a6%8f</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mailloss" target="_blank" class="url-link">https://techops.digiwin.com/mailloss</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-it-outsourcing" target="_blank" class="url-link">https://techops.digiwin.com/what-is-it-outsourcing</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220623" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220623</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/fortinet-triangle-solution" target="_blank" class="url-link">https://techops.digiwin.com/fortinet-triangle-solution</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%ae%89%e5%85%a8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%ae%89%e5%85%a8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%90%88%e8%a6%8f%e8%87%aa%e5%8b%95%e5%8c%96" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%90%88%e8%a6%8f%e8%87%aa%e5%8b%95%e5%8c%96</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-information-security-maintenance-plan" target="_blank" class="url-link">https://techops.digiwin.com/what-is-information-security-maintenance-plan</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/office-network-solution" target="_blank" class="url-link">https://techops.digiwin.com/office-network-solution</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/netplan_error" target="_blank" class="url-link">https://techops.digiwin.com/netplan_error</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%a4%be%e4%ba%a4%e5%b7%a5%e7%a8%8b%e6%94%bb%e6%93%8a" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%a4%be%e4%ba%a4%e5%b7%a5%e7%a8%8b%e6%94%bb%e6%93%8a</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/iso-27001-certification-audit-solution" target="_blank" class="url-link">https://techops.digiwin.com/iso-27001-certification-audit-solution</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e6%96%99%e5%82%99%e4%bb%bd%e5%ae%89%e5%85%a8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e6%96%99%e5%82%99%e4%bb%bd%e5%ae%89%e5%85%a8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cyber-safe-interactive" target="_blank" class="url-link">https://techops.digiwin.com/cyber-safe-interactive</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%bc%b1%e9%bb%9e%e6%8e%83%e6%8f%8f" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%bc%b1%e9%bb%9e%e6%8e%83%e6%8f%8f</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%a4%a7%e5%b0%8f%e4%ba%8b" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e5%a4%a7%e5%b0%8f%e4%ba%8b</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/is-fmb" target="_blank" class="url-link">https://techops.digiwin.com/is-fmb</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ai-agent-cybersecurity" target="_blank" class="url-link">https://techops.digiwin.com/ai-agent-cybersecurity</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/vulnerability-assessment" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/vulnerability-assessment</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221202" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221202</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%95%b8%e6%99%ba%e5%88%86%e8%ba%ab" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%95%b8%e6%99%ba%e5%88%86%e8%ba%ab</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%b6%b2%e8%b7%af%e6%94%bb%e6%93%8a" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%b6%b2%e8%b7%af%e6%94%bb%e6%93%8a</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/agentic-ai-cybersecurity-resilience" target="_blank" class="url-link">https://techops.digiwin.com/agentic-ai-cybersecurity-resilience</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-network-management" target="_blank" class="url-link">https://techops.digiwin.com/event-network-management</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/vuln-priority" target="_blank" class="url-link">https://techops.digiwin.com/vuln-priority</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%b8%8d%e5%8f%af%e8%ae%8a%e5%82%99%e4%bb%bd" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%b8%8d%e5%8f%af%e8%ae%8a%e5%82%99%e4%bb%bd</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%82%99%e5%88%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%82%99%e5%88%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92%e5%82%99%e4%bb%bd%e9%98%b2%e8%ad%b7" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92%e5%82%99%e4%bb%bd%e9%98%b2%e8%ad%b7</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-ransomware-secret" target="_blank" class="url-link">https://techops.digiwin.com/event-ransomware-secret</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-phishing-email-bec" target="_blank" class="url-link">https://techops.digiwin.com/what-is-phishing-email-bec</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%a7%81%e6%9c%89%e9%9b%b2" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%a7%81%e6%9c%89%e9%9b%b2</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%b1%85%e5%ae%b6%e8%be%a6%e5%85%ac" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%b1%85%e5%ae%b6%e8%be%a6%e5%85%ac</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/hp_pc_digiwin_mdr" target="_blank" class="url-link">https://techops.digiwin.com/hp_pc_digiwin_mdr</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cdm_inventory" target="_blank" class="url-link">https://techops.digiwin.com/cdm_inventory</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%9b%b6%e4%bf%a1%e4%bb%bb" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%9b%b6%e4%bf%a1%e4%bb%bb</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%96%b0%e5%9e%8b%e6%85%8b%e8%be%a6%e5%85%ac%e6%a8%a1%e5%bc%8f" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%96%b0%e5%9e%8b%e6%85%8b%e8%be%a6%e5%85%ac%e6%a8%a1%e5%bc%8f</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e6%ad%b8%e6%aa%94" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e6%ad%b8%e6%aa%94</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221125" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221125</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%98%b2%e6%af%92%e8%bb%9f%e9%ab%94" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%98%b2%e6%af%92%e8%bb%9f%e9%ab%94</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/disaster-recovery" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/disaster-recovery</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%be%9b%e6%87%89%e9%8f%88%e8%b3%87%e5%ae%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%be%9b%e6%87%89%e9%8f%88%e8%b3%87%e5%ae%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/procurement-security" target="_blank" class="url-link">https://techops.digiwin.com/procurement-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/jhujian-iso27001" target="_blank" class="url-link">https://techops.digiwin.com/jhujian-iso27001</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221122" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221122</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/aiagent" target="_blank" class="url-link">https://techops.digiwin.com/tag/aiagent</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%a1%86%e6%9e%b6" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%a1%86%e6%9e%b6</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-thank-you-page" target="_blank" class="url-link">https://techops.digiwin.com/event-thank-you-page</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%be%9b%e6%87%89%e9%8f%88%e8%b3%87%e5%ae%89%ef%bc%8cai-%e6%94%bb%e6%93%8a%e8%88%87%e7%87%9f%e9%81%8b%e6%8c%81%e7%ba%8c%ef%bc%8c%e4%be%9b%e6%87%89%e9%8f%88%e9%9f%8c%e6%80%a7%ef%bc%8c%e5%90%88" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%be%9b%e6%87%89%e9%8f%88%e8%b3%87%e5%ae%89%ef%bc%8cai-%e6%94%bb%e6%93%8a%e8%88%87%e7%87%9f%e9%81%8b%e6%8c%81%e7%ba%8c%ef%bc%8c%e4%be%9b%e6%87%89%e9%8f%88%e9%9f%8c%e6%80%a7%ef%bc%8c%e5%90%88</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/security-scorecard" target="_blank" class="url-link">https://techops.digiwin.com/tag/security-scorecard</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220826" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220826</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%85%ac%e5%8f%b8%e8%b3%87%e8%a8%8a%e7%92%b0%e5%a2%83%e7%99%b1%e7%98%93" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%85%ac%e5%8f%b8%e8%b3%87%e8%a8%8a%e7%92%b0%e5%a2%83%e7%99%b1%e7%98%93</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-fortinet-ot-security" target="_blank" class="url-link">https://techops.digiwin.com/event-fortinet-ot-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e9%80%9a%e5%ae%89%e5%85%a8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e9%80%9a%e5%ae%89%e5%85%a8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/how-to-pass-iso27001" target="_blank" class="url-link">https://techops.digiwin.com/how-to-pass-iso27001</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/iso27001" target="_blank" class="url-link">https://techops.digiwin.com/tag/iso27001</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/rw_8tips" target="_blank" class="url-link">https://techops.digiwin.com/rw_8tips</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/network-triangle-solution" target="_blank" class="url-link">https://techops.digiwin.com/network-triangle-solution</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/sale-cloud-backup" target="_blank" class="url-link">https://techops.digiwin.com/sale-cloud-backup</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%9b%b6%e4%bf%a1%e4%bb%bb%e5%82%99%e4%bb%bd" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%9b%b6%e4%bf%a1%e4%bb%bb%e5%82%99%e4%bb%bd</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/telecommute" target="_blank" class="url-link">https://techops.digiwin.com/telecommute</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%9b%86%e5%9c%98" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%9b%86%e5%9c%98</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mulisthreats" target="_blank" class="url-link">https://techops.digiwin.com/mulisthreats</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b6%85%e8%9e%8d%e5%90%88%e6%a1%88%e4%be%8b" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b6%85%e8%9e%8d%e5%90%88%e6%a1%88%e4%be%8b</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ai%e9%87%a3%e9%ad%9a%e9%83%b5%e4%bb%b6" target="_blank" class="url-link">https://techops.digiwin.com/tag/ai%e9%87%a3%e9%ad%9a%e9%83%b5%e4%bb%b6</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221220" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221220</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/case-vmware-vsan" target="_blank" class="url-link">https://techops.digiwin.com/case-vmware-vsan</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/promotion-security-seminar" target="_blank" class="url-link">https://techops.digiwin.com/promotion-security-seminar</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/protect-personal-data" target="_blank" class="url-link">https://techops.digiwin.com/protect-personal-data</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/pam_3w" target="_blank" class="url-link">https://techops.digiwin.com/pam_3w</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221025" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221025</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/backup_cloud" target="_blank" class="url-link">https://techops.digiwin.com/backup_cloud</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%a2%a8%e9%9a%aa%e7%ae%a1%e7%90%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%a2%a8%e9%9a%aa%e7%ae%a1%e7%90%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/backup321" target="_blank" class="url-link">https://techops.digiwin.com/backup321</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/line-official-website-phishing" target="_blank" class="url-link">https://techops.digiwin.com/line-official-website-phishing</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220428" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220428</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%98%b2%e8%ad%b7" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%98%b2%e8%ad%b7</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ot%e7%b6%b2%e7%ae%a1" target="_blank" class="url-link">https://techops.digiwin.com/tag/ot%e7%b6%b2%e7%ae%a1</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220609" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220609</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-edge-server" target="_blank" class="url-link">https://techops.digiwin.com/event-edge-server</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/security-regulation" target="_blank" class="url-link">https://techops.digiwin.com/security-regulation</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b7%a8%e6%ba%90%e8%b3%87%e5%ae%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b7%a8%e6%ba%90%e8%b3%87%e5%ae%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e7%af%80%e7%a8%85" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e7%af%80%e7%a8%85</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%b7%a5%e6%8e%a7%e8%b3%87%e5%ae%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%b7%a5%e6%8e%a7%e8%b3%87%e5%ae%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%a4%be%e4%ba%a4%e6%94%bb%e6%93%8a%e6%bc%94%e7%b7%b4" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%a4%be%e4%ba%a4%e6%94%bb%e6%93%8a%e6%bc%94%e7%b7%b4</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ransomware-detection-and-prevention" target="_blank" class="url-link">https://techops.digiwin.com/ransomware-detection-and-prevention</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/security-budget-tax" target="_blank" class="url-link">https://techops.digiwin.com/security-budget-tax</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ot%e8%b3%87%e5%ae%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/ot%e8%b3%87%e5%ae%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/smart_data_leakage_and_endpoint_security" target="_blank" class="url-link">https://techops.digiwin.com/smart_data_leakage_and_endpoint_security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/edr" target="_blank" class="url-link">https://techops.digiwin.com/tag/edr</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%bb%bf%e7%9c%9f%e9%87%a3%e9%ad%9a%e4%bf%a1" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%bb%bf%e7%9c%9f%e9%87%a3%e9%ad%9a%e4%bf%a1</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e8%a9%95%e7%b4%9a" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e8%a9%95%e7%b4%9a</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/se-data-leak-risk" target="_blank" class="url-link">https://techops.digiwin.com/se-data-leak-risk</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-edr-how-choose-suitable-edr" target="_blank" class="url-link">https://techops.digiwin.com/what-is-edr-how-choose-suitable-edr</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-account-password-management" target="_blank" class="url-link">https://techops.digiwin.com/what-is-account-password-management</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/cdm" target="_blank" class="url-link">https://techops.digiwin.com/tag/cdm</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/citrix" target="_blank" class="url-link">https://techops.digiwin.com/citrix</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220727" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220727</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%9b%b2%e7%ab%af%e5%82%99%e4%bb%bd" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%9b%b2%e7%ab%af%e5%82%99%e4%bb%bd</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ransomware-encryption-virus" target="_blank" class="url-link">https://techops.digiwin.com/ransomware-encryption-virus</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%bc%8f%e6%b4%9e%e7%ae%a1%e7%90%86%ef%bc%8c%e6%bc%8f%e6%b4%9e%e4%bf%ae%e8%a3%9c%e5%84%aa%e5%85%88%e9%a0%86%e5%ba%8f%ef%bc%8c%e8%b3%87%e5%ae%89%e7%a8%bd%e6%a0%b8%e6%ba%96%e5%82%99" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%bc%8f%e6%b4%9e%e7%ae%a1%e7%90%86%ef%bc%8c%e6%bc%8f%e6%b4%9e%e4%bf%ae%e8%a3%9c%e5%84%aa%e5%85%88%e9%a0%86%e5%ba%8f%ef%bc%8c%e8%b3%87%e5%ae%89%e7%a8%bd%e6%a0%b8%e6%ba%96%e5%82%99</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ransomware-data-backup" target="_blank" class="url-link">https://techops.digiwin.com/ransomware-data-backup</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e7%ad%96%e7%95%a5" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e7%ad%96%e7%95%a5</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%87%a3%e9%ad%9a%e9%83%b5%e4%bb%b6" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%87%a3%e9%ad%9a%e9%83%b5%e4%bb%b6</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%ae%ad%e5%b1%8d%e7%b6%b2%e8%b7%af" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%ae%ad%e5%b1%8d%e7%b6%b2%e8%b7%af</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/socialatk" target="_blank" class="url-link">https://techops.digiwin.com/socialatk</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/pam" target="_blank" class="url-link">https://techops.digiwin.com/pam</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%9b%b2%e7%ab%af%e6%99%ba%e6%85%a7" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%9b%b2%e7%ab%af%e6%99%ba%e6%85%a7</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/how-to-protect-data" target="_blank" class="url-link">https://techops.digiwin.com/how-to-protect-data</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/hp_digiwin_soc" target="_blank" class="url-link">https://techops.digiwin.com/hp_digiwin_soc</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/7r" target="_blank" class="url-link">https://techops.digiwin.com/7r</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ai-agent" target="_blank" class="url-link">https://techops.digiwin.com/tag/ai-agent</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220519" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220519</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-mdr" target="_blank" class="url-link">https://techops.digiwin.com/what-is-mdr</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/cybersec2026" target="_blank" class="url-link">https://techops.digiwin.com/tag/cybersec2026</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/smb_ransomware" target="_blank" class="url-link">https://techops.digiwin.com/smb_ransomware</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mhoa" target="_blank" class="url-link">https://techops.digiwin.com/mhoa</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ai_security" target="_blank" class="url-link">https://techops.digiwin.com/ai_security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/fortinet" target="_blank" class="url-link">https://techops.digiwin.com/tag/fortinet</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ai-chain-taiwan" target="_blank" class="url-link">https://techops.digiwin.com/ai-chain-taiwan</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/manufacturing-ot-security-supply-chain-2025-2026-risk-report" target="_blank" class="url-link">https://techops.digiwin.com/manufacturing-ot-security-supply-chain-2025-2026-risk-report</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-arrosoft-cloud" target="_blank" class="url-link">https://techops.digiwin.com/event-arrosoft-cloud</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/security-regulation_lazyguide" target="_blank" class="url-link">https://techops.digiwin.com/security-regulation_lazyguide</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%99%ba%e6%85%a7%e5%b7%a5%e5%bb%a0" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%99%ba%e6%85%a7%e5%b7%a5%e5%bb%a0</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tax_mitigation" target="_blank" class="url-link">https://techops.digiwin.com/tax_mitigation</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cloud" target="_blank" class="url-link">https://techops.digiwin.com/cloud</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%a2%a8%e9%9a%aa%e7%ae%a1%e7%90%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%a2%a8%e9%9a%aa%e7%ae%a1%e7%90%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/aieom_c_m" target="_blank" class="url-link">https://techops.digiwin.com/aieom_c_m</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/anti-ransom-3defense" target="_blank" class="url-link">https://techops.digiwin.com/anti-ransom-3defense</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%95%b8%e6%93%9a%e8%87%aa%e4%b8%bb%e6%ac%8a" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%95%b8%e6%93%9a%e8%87%aa%e4%b8%bb%e6%ac%8a</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/security-fabric" target="_blank" class="url-link">https://techops.digiwin.com/security-fabric</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/otthreat" target="_blank" class="url-link">https://techops.digiwin.com/otthreat</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/howtodo-ipo-security" target="_blank" class="url-link">https://techops.digiwin.com/howtodo-ipo-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cloudsecurity_aws_15hour_outage" target="_blank" class="url-link">https://techops.digiwin.com/cloudsecurity_aws_15hour_outage</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/nas" target="_blank" class="url-link">https://techops.digiwin.com/tag/nas</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/cloud-backup" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/cloud-backup</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/prevent_phishing" target="_blank" class="url-link">https://techops.digiwin.com/prevent_phishing</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%bc%8f%e6%b4%9e" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%bc%8f%e6%b4%9e</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e8%a8%8a%e5%ae%89%e5%85%a8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e8%a8%8a%e5%ae%89%e5%85%a8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd321" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd321</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b6%85%e8%9e%8d%e5%90%88" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b6%85%e8%9e%8d%e5%90%88</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/services" target="_blank" class="url-link">https://techops.digiwin.com/services</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/risk-assessment" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/risk-assessment</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/oatk_321" target="_blank" class="url-link">https://techops.digiwin.com/oatk_321</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20221108" target="_blank" class="url-link">https://techops.digiwin.com/activity_20221108</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/thank-you-page" target="_blank" class="url-link">https://techops.digiwin.com/thank-you-page</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/supplychain-security" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/supplychain-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-mdm" target="_blank" class="url-link">https://techops.digiwin.com/event-mdm</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ai-%e7%a7%91%e6%8a%80" target="_blank" class="url-link">https://techops.digiwin.com/tag/ai-%e7%a7%91%e6%8a%80</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ai-chain-security" target="_blank" class="url-link">https://techops.digiwin.com/ai-chain-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/forti%e9%90%b5%e4%b8%89%e8%a7%92" target="_blank" class="url-link">https://techops.digiwin.com/tag/forti%e9%90%b5%e4%b8%89%e8%a7%92</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/databackup" target="_blank" class="url-link">https://techops.digiwin.com/databackup</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ai%e9%82%8a%e7%b7%a3%e9%81%8b%e7%ae%97" target="_blank" class="url-link">https://techops.digiwin.com/tag/ai%e9%82%8a%e7%b7%a3%e9%81%8b%e7%ae%97</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-edr" target="_blank" class="url-link">https://techops.digiwin.com/what-is-edr</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/rw_sum" target="_blank" class="url-link">https://techops.digiwin.com/rw_sum</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/epp" target="_blank" class="url-link">https://techops.digiwin.com/tag/epp</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-smb-security-strategy" target="_blank" class="url-link">https://techops.digiwin.com/event-smb-security-strategy</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ransomware-risk-check" target="_blank" class="url-link">https://techops.digiwin.com/ransomware-risk-check</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/2026-sc-security" target="_blank" class="url-link">https://techops.digiwin.com/2026-sc-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/backup_water" target="_blank" class="url-link">https://techops.digiwin.com/backup_water</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/byodmcrash" target="_blank" class="url-link">https://techops.digiwin.com/byodmcrash</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/iso27001quick-quote" target="_blank" class="url-link">https://techops.digiwin.com/iso27001quick-quote</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-ransomware-defence" target="_blank" class="url-link">https://techops.digiwin.com/event-ransomware-defence</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/hyper-converged-infrastructure-2" target="_blank" class="url-link">https://techops.digiwin.com/hyper-converged-infrastructure-2</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e6%96%99%e9%98%b2%e8%ad%b7" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e6%96%99%e9%98%b2%e8%ad%b7</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/otis" target="_blank" class="url-link">https://techops.digiwin.com/otis</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-what-is-iso27001" target="_blank" class="url-link">https://techops.digiwin.com/event-what-is-iso27001</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ezbak" target="_blank" class="url-link">https://techops.digiwin.com/ezbak</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%a7%ad%e5%ae%a2" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%a7%ad%e5%ae%a2</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/how-to-protect-ai-phishing-emails" target="_blank" class="url-link">https://techops.digiwin.com/how-to-protect-ai-phishing-emails</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%9b%b2%e7%ab%af%e6%87%89%e7%94%a8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%9b%b2%e7%ab%af%e6%87%89%e7%94%a8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/iso27001-certification" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/iso27001-certification</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/zero-trust-maturity-scan" target="_blank" class="url-link">https://techops.digiwin.com/zero-trust-maturity-scan</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/data-breach" target="_blank" class="url-link">https://techops.digiwin.com/data-breach</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%95%b8%e4%bd%8d%e8%bd%89%e5%9e%8b" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%95%b8%e4%bd%8d%e8%bd%89%e5%9e%8b</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/it%e7%b6%b2%e7%ae%a1" target="_blank" class="url-link">https://techops.digiwin.com/tag/it%e7%b6%b2%e7%ae%a1</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ot_network_security" target="_blank" class="url-link">https://techops.digiwin.com/ot_network_security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ocpis" target="_blank" class="url-link">https://techops.digiwin.com/ocpis</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/w11rdpck" target="_blank" class="url-link">https://techops.digiwin.com/w11rdpck</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/ransomware" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/ransomware</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/encryptednasa" target="_blank" class="url-link">https://techops.digiwin.com/encryptednasa</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/backup-and-restore-drill" target="_blank" class="url-link">https://techops.digiwin.com/backup-and-restore-drill</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%84%8f%e8%ad%98" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%84%8f%e8%ad%98</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e7%a8%bd%e6%a0%b8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e7%a8%bd%e6%a0%b8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/personal-information-protection-lazyguide" target="_blank" class="url-link">https://techops.digiwin.com/personal-information-protection-lazyguide</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%82%8a%e7%b7%a3%e9%81%8b%e7%ae%97" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%82%8a%e7%b7%a3%e9%81%8b%e7%ae%97</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ai-security-ops-compliance-ransomware" target="_blank" class="url-link">https://techops.digiwin.com/ai-security-ops-compliance-ransomware</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/solution" target="_blank" class="url-link">https://techops.digiwin.com/solution</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%85%ac%e6%9c%89%e9%9b%b2" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%85%ac%e6%9c%89%e9%9b%b2</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%a9%9f%e6%95%8f%e8%b3%87%e6%96%99" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%a9%9f%e6%95%8f%e8%b3%87%e6%96%99</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%b8%8a%e5%b8%82%e6%ab%83" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%b8%8a%e5%b8%82%e6%ab%83</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ai%e8%b3%87%e5%ae%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/ai%e8%b3%87%e5%ae%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/contact-line" target="_blank" class="url-link">https://techops.digiwin.com/contact-line</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ransomware-resolve" target="_blank" class="url-link">https://techops.digiwin.com/ransomware-resolve</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/network-management" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/network-management</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cloud-backup" target="_blank" class="url-link">https://techops.digiwin.com/cloud-backup</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e5%ae%89%e5%85%a8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e5%ae%89%e5%85%a8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/information-security-engineer" target="_blank" class="url-link">https://techops.digiwin.com/information-security-engineer</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ssc" target="_blank" class="url-link">https://techops.digiwin.com/tag/ssc</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/security-enviroment-assessment" target="_blank" class="url-link">https://techops.digiwin.com/security-enviroment-assessment</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220527" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220527</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%a2%a8%e9%9a%aa%e8%a9%95%e4%bc%b0" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%a2%a8%e9%9a%aa%e8%a9%95%e4%bc%b0</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/rurwatk" target="_blank" class="url-link">https://techops.digiwin.com/rurwatk</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e9%83%b5%e4%bb%b6%e9%87%8d%e8%a6%81%e6%80%a7" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e9%83%b5%e4%bb%b6%e9%87%8d%e8%a6%81%e6%80%a7</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/wfhnow" target="_blank" class="url-link">https://techops.digiwin.com/wfhnow</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%b2%bb%e7%90%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e6%b2%bb%e7%90%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-corporation-bcm" target="_blank" class="url-link">https://techops.digiwin.com/event-corporation-bcm</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mining_edr" target="_blank" class="url-link">https://techops.digiwin.com/mining_edr</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e7%b6%b2%e8%b7%af%e7%ae%a1%e7%90%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e7%b6%b2%e8%b7%af%e7%ae%a1%e7%90%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%90%b5%e4%b8%89%e8%a7%92" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e9%90%b5%e4%b8%89%e8%a7%92</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%a9%90%e9%a8%99%e9%83%b5%e4%bb%b6" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%a9%90%e9%a8%99%e9%83%b5%e4%bb%b6</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/iso27001%e8%aa%8d%e8%ad%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/iso27001%e8%aa%8d%e8%ad%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mem_aieom_s" target="_blank" class="url-link">https://techops.digiwin.com/mem_aieom_s</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e8%b3%87%e5%ae%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%bc%81%e6%a5%ad%e8%b3%87%e5%ae%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/acctsafety" target="_blank" class="url-link">https://techops.digiwin.com/acctsafety</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/cloud-application" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/cloud-application</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cyber-security-threat" target="_blank" class="url-link">https://techops.digiwin.com/cyber-security-threat</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/news_cyber-security-seminar" target="_blank" class="url-link">https://techops.digiwin.com/news_cyber-security-seminar</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/mdm" target="_blank" class="url-link">https://techops.digiwin.com/tag/mdm</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-disaster-recovery" target="_blank" class="url-link">https://techops.digiwin.com/event-disaster-recovery</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/operational-technology-security" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/operational-technology-security</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e7%94%a2%e5%93%81" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e7%94%a2%e5%93%81</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/hp_aieom" target="_blank" class="url-link">https://techops.digiwin.com/hp_aieom</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/information-security-diagnostic" target="_blank" class="url-link">https://techops.digiwin.com/information-security-diagnostic</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/vmware-vsan" target="_blank" class="url-link">https://techops.digiwin.com/tag/vmware-vsan</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%b6%b2%e8%b7%af%e6%93%8d%e4%bd%9c" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%b6%b2%e8%b7%af%e6%93%8d%e4%bd%9c</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/iso-27001-quote" target="_blank" class="url-link">https://techops.digiwin.com/iso-27001-quote</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/security-regulation-audit" target="_blank" class="url-link">https://techops.digiwin.com/security-regulation-audit</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/iam_event" target="_blank" class="url-link">https://techops.digiwin.com/iam_event</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/cyber-audit-external-assets" target="_blank" class="url-link">https://techops.digiwin.com/cyber-audit-external-assets</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/author/jackielin" target="_blank" class="url-link">https://techops.digiwin.com/author/jackielin</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e8%aa%8d%e8%ad%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e8%aa%8d%e8%ad%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-vulnerability-assessment" target="_blank" class="url-link">https://techops.digiwin.com/event-vulnerability-assessment</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%b8%b3%e8%99%9f%e7%ae%a1%e7%90%86" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%b8%b3%e8%99%9f%e7%ae%a1%e7%90%86</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%b7%b7%e5%90%88%e9%9b%b2" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%b7%b7%e5%90%88%e9%9b%b2</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/enterprise-backup" target="_blank" class="url-link">https://techops.digiwin.com/enterprise-backup</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220714" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220714</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-security-scorecard" target="_blank" class="url-link">https://techops.digiwin.com/event-security-scorecard</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e9%83%b5%e4%bb%b6%e8%a9%90%e9%a8%99" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e9%83%b5%e4%bb%b6%e8%a9%90%e9%a8%99</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/category/activity/edge-computing" target="_blank" class="url-link">https://techops.digiwin.com/category/activity/edge-computing</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/social_engineering" target="_blank" class="url-link">https://techops.digiwin.com/social_engineering</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/netattack7" target="_blank" class="url-link">https://techops.digiwin.com/netattack7</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e6%89%8b%e6%a9%9f%e7%ae%a1%e5%88%b6" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e6%89%8b%e6%a9%9f%e7%ae%a1%e5%88%b6</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ciso4tk" target="_blank" class="url-link">https://techops.digiwin.com/ciso4tk</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/immutable-backup-zero-trust" target="_blank" class="url-link">https://techops.digiwin.com/immutable-backup-zero-trust</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/external-exposure-report" target="_blank" class="url-link">https://techops.digiwin.com/external-exposure-report</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/iso27001-%e8%aa%b2%e7%a8%8b" target="_blank" class="url-link">https://techops.digiwin.com/tag/iso27001-%e8%aa%b2%e7%a8%8b</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/news_security-strategy-seminar" target="_blank" class="url-link">https://techops.digiwin.com/news_security-strategy-seminar</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/what-is-risk-assessment" target="_blank" class="url-link">https://techops.digiwin.com/what-is-risk-assessment</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/edge-server" target="_blank" class="url-link">https://techops.digiwin.com/tag/edge-server</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e4%bf%84%e7%83%8f%e6%88%b0%e7%88%ad" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e4%bf%84%e7%83%8f%e6%88%b0%e7%88%ad</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/ai-agent-%e8%b3%87%e5%ae%89" target="_blank" class="url-link">https://techops.digiwin.com/tag/ai-agent-%e8%b3%87%e5%ae%89</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/hyper-converged-infrastructure" target="_blank" class="url-link">https://techops.digiwin.com/hyper-converged-infrastructure</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/security_loopholes" target="_blank" class="url-link">https://techops.digiwin.com/security_loopholes</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mdr_event_20220329" target="_blank" class="url-link">https://techops.digiwin.com/mdr_event_20220329</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/2021%e6%9c%80%e5%a4%a7%e7%9a%84%e6%bc%8f%e6%b4%9e" target="_blank" class="url-link">https://techops.digiwin.com/tag/2021%e6%9c%80%e5%a4%a7%e7%9a%84%e6%bc%8f%e6%b4%9e</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/event-itot-network" target="_blank" class="url-link">https://techops.digiwin.com/event-itot-network</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/edr-mdr-key-difference" target="_blank" class="url-link">https://techops.digiwin.com/edr-mdr-key-difference</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e7%a8%bd%e6%a0%b8" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e5%ae%89%e7%a8%bd%e6%a0%b8</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e8%b3%87%e6%96%99%e5%82%99%e4%bb%bd" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e8%b3%87%e6%96%99%e5%82%99%e4%bb%bd</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e7%81%bd%e9%9b%a3%e5%be%a9%e5%8e%9f" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e7%81%bd%e9%9b%a3%e5%be%a9%e5%8e%9f</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/edr_protect" target="_blank" class="url-link">https://techops.digiwin.com/edr_protect</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mdr168" target="_blank" class="url-link">https://techops.digiwin.com/mdr168</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/ai-information-security-lazyguide" target="_blank" class="url-link">https://techops.digiwin.com/ai-information-security-lazyguide</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/how-to-ransomware-decryption" target="_blank" class="url-link">https://techops.digiwin.com/how-to-ransomware-decryption</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/mail" target="_blank" class="url-link">https://techops.digiwin.com/mail</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e9%98%b2%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92" target="_blank" class="url-link">https://techops.digiwin.com/tag/%e5%82%99%e4%bb%bd%e9%98%b2%e5%8b%92%e7%b4%a2%e7%97%85%e6%af%92</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20220713" target="_blank" class="url-link">https://techops.digiwin.com/activity_20220713</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/activity_20230223" target="_blank" class="url-link">https://techops.digiwin.com/activity_20230223</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/imofmail" target="_blank" class="url-link">https://techops.digiwin.com/imofmail</a>
+                                
+                            </td>
+                            <td class="detail-cell">Sitemap 中存在，但網站內沒有任何有效連結指向它</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </details>
+        
+        <details class="issue-section" id="issue-H1 異常" name="issue">
+            <summary>
+                <div class="summary-header">
+                    <h2>H1 異常 <span class="badge">1</span></h2>
+                    <span class="chevron">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </summary>
+            
+            <div class="filter-group" data-filter-target="H1 異常">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="missing">缺少</button>
+                <button class="filter-btn" data-filter="exceeded">超過</button>
+            </div>
+            
+            <div class="issue-table-container">
+                <table class="issue-table">
+                    <thead>
+                        <tr>
+                            <th>受影響的網址</th>
+                            <th>問題詳情</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="url-cell">
+                                <a href="https://techops.digiwin.com/" target="_blank" class="url-link">https://techops.digiwin.com/</a>
+                                
+                            </td>
+                            <td class="detail-cell">存在 2 個 H1 標籤 (超過 1 個)</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </details>
+        
+        
+
+        <footer>
+            Digiwin Automated SEO Crawler &copy; 2026
+        </footer>
+    </div>
+
+    <script>
+        function openFromHash() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#')) {
+                const id = decodeURIComponent(hash).substring(1);
+                const details = document.getElementById(id);
+                if (details && details.tagName === 'DETAILS') {
+                    details.open = true;
+                    // Add a brief delay to allow layout to settle before scrolling
+                    setTimeout(() => {
+                        details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                }
+            }
+        }
+
+        // Add click handler to summary-cards to ensure details element opens
+        document.querySelectorAll('.summary-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const href = card.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const id = decodeURIComponent(href).substring(1);
+                    const details = document.getElementById(id);
+                    if (details && details.tagName === 'DETAILS') {
+                        details.open = true;
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('hashchange', openFromHash);
+        window.addEventListener('DOMContentLoaded', openFromHash);
+
+        // Filter functionality
+        document.querySelectorAll('.filter-group').forEach(group => {
+            const targetType = group.getAttribute('data-filter-target');
+            const detailsEl = group.closest('details');
+            if (!detailsEl) return;
+            const rows = detailsEl.querySelectorAll('.issue-table tbody tr');
+
+            group.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    rows.forEach(row => {
+                        const detailCell = row.querySelector('.detail-cell');
+                        if (!detailCell) return;
+                        const detailText = detailCell.textContent;
+                        let show = false;
+
+                        if (filter === 'all') {
+                            show = true;
+                        } else if (targetType === 'H1 異常') {
+                            if (filter === 'missing' && detailText.includes('缺少')) {
+                                show = true;
+                            } else if (filter === 'exceeded' && detailText.includes('超過')) {
+                                show = true;
+                            }
+                        } else if (targetType === 'Description 異常') {
+                            if (filter === 'missing' && detailText.includes('缺少')) {
+                                show = true;
+                            } else if (filter === 'too-short' && detailText.includes('過短')) {
+                                show = true;
+                            } else if (filter === 'newlines' && detailText.includes('包含換行')) {
+                                show = true;
+                            }
+                        }
+
+                        if (show) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
