@@ -1,18 +1,12 @@
 [
   {
-    "url": "https://techops.digiwin.com/hp_digiwin_soc/",
-    "type": "孤兒網頁",
-    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-thank-you-page/",
-    "type": "孤兒網頁",
-    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
-    "referer": null
-  },
-  {
     "url": "https://techops.digiwin.com/table_tags/%e7%b6%b2%e8%b7%af%e6%96%b7%e6%96%b7%e7%ba%8c%e7%ba%8c/",
+    "type": "孤兒網頁",
+    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/sale-backup-recovery/",
     "type": "孤兒網頁",
     "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
     "referer": null
@@ -24,7 +18,7 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/zero-trust-maturity-scan/",
+    "url": "https://techops.digiwin.com/event-thank-you-page/",
     "type": "孤兒網頁",
     "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
     "referer": null
@@ -36,7 +30,25 @@
     "referer": null
   },
   {
+    "url": "https://techops.digiwin.com/security-enviroment-assessment/",
+    "type": "孤兒網頁",
+    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/hp_digiwin_soc/",
+    "type": "孤兒網頁",
+    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
+    "referer": null
+  },
+  {
     "url": "https://techops.digiwin.com/online-event-ghost/",
+    "type": "孤兒網頁",
+    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/zero-trust-maturity-scan/",
     "type": "孤兒網頁",
     "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
     "referer": null
@@ -54,19 +66,7 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/sale-backup-recovery/",
-    "type": "孤兒網頁",
-    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
-    "referer": null
-  },
-  {
     "url": "https://techops.digiwin.com/services/",
-    "type": "孤兒網頁",
-    "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/security-enviroment-assessment/",
     "type": "孤兒網頁",
     "details": "Sitemap 中存在，但網站內沒有任何有效連結指向它",
     "referer": null
@@ -78,307 +78,7 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/aboutus/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/cybersecurity-assessment/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/vulnerability-assessment/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-pam-privileged-access-management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-social-engineering/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/news/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/news/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/news/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-sensitive-doc-mgmt-audit/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-source-code-analysis/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-dlp-data-loss-prevention/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/aieom/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-vulnerability-patch-management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-mfa-multi-factor-authentication/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-ot/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-security-regulation/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-security-regulation/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/?s=%E4%B8%8A%E5%B8%82%E6%AB%83",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/regulation/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/regulation/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/regulation/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/contact/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/contact/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-cloud-hosting/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/security-protection-challenge/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-infosec-standard/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-iso27701-consultant/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-information-security-protection-response/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-risk-assessment/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-ips-intrusion-prevention-system/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-tr7/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/howtodo_cloud/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/spam/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-pam-privileged-access-management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-data-export-import/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-cirs/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/backup/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/backup/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/backup/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-soc-security-operation-center/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/cloud/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/cloud/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/cloud/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/esg_cr_cloud/",
+    "url": "https://techops.digiwin.com/solution-it-outsourcing/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -390,85 +90,31 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/solution-vulnerability-management/",
+    "url": "https://techops.digiwin.com/cybersecurity-assessment/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/issue-information-security-management/",
+    "url": "https://techops.digiwin.com/category/regulation/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/regulation/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/regulation/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/omc/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/telecommuting/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-easm-external-attack-surface-management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-edr/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/agentic-ai/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-it-outsourcing/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-production-line-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-disaster-recovery/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/safety-0-day-attack/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-backup/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-personal-data-security-maintenance/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/solution-penetration-test/",
+    "url": "https://techops.digiwin.com/solution-ips-intrusion-prevention-system/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -480,31 +126,85 @@
     "referer": null
   },
   {
+    "url": "https://techops.digiwin.com/solution-easm-external-attack-surface-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/aieom/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-edr/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/vulnerability-assessment/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-tr7/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/spam/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
     "url": "https://techops.digiwin.com/supply-chain-cyber-security/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/mail/",
+    "url": "https://techops.digiwin.com/category/security/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/mail/",
+    "url": "https://techops.digiwin.com/category/security/",
     "type": "H1 異常",
     "details": "缺少 H1 標籤",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/mail/",
+    "url": "https://techops.digiwin.com/category/security/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/solution-security-course/",
+    "url": "https://techops.digiwin.com/security-protection-challenge/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-cloud-hosting/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-information-security-protection-response/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-information-security-management/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -517,6 +217,60 @@
   },
   {
     "url": "https://techops.digiwin.com/legal/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/howtodo_cloud/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-penetration-test/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-cirs/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/safety-0-day-attack/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-vulnerability-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-source-code-analysis/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-production-line-security/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -546,13 +300,349 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/risk-assessment/",
+    "url": "https://techops.digiwin.com/category/mail/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/risk-assessment/",
+    "url": "https://techops.digiwin.com/category/mail/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/mail/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/backup/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/backup/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/backup/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-pam-privileged-access-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/esg_cr_cloud/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/agentic-ai/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-personal-data-security-maintenance/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-data-export-import/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/",
+    "type": "Description 異常",
+    "details": "Description 過短 (10 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-social-engineering/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-vulnerability-patch-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/cloud/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/cloud/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/cloud/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-ot/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-dlp-data-loss-prevention/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-sensitive-doc-mgmt-audit/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-mfa-multi-factor-authentication/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-infosec-standard/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/contact/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/contact/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/telecommuting/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/omc/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-security-regulation/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/?s=%E4%B8%8A%E5%B8%82%E6%AB%83",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-security-regulation/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-security-course/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-backup/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-pam-privileged-access-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-disaster-recovery/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-risk-assessment/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/aboutus/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-soc-security-operation-center/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/solution-iso27701-consultant/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/how-to-pass-iso27001/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ai-it-automation/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/edge-computing/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/edge-computing/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/iso27001-business-value/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/operational-technology-security/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/operational-technology-security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/supplychain-security/",
+    "type": "Description 異常",
+    "details": "Description 過短 (10 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/supplychain-security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/cloud-application/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/cloud-application/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/ransomware/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/ransomware/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/network-management/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/network-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/how-to-protect-data/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/cybersecurity-report-2026/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -565,6 +655,138 @@
   },
   {
     "url": "https://techops.digiwin.com/category/activity/disaster-recovery/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/iso27001-latest-fee/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/mdm/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/mdm/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/iso27001-certification/",
+    "type": "Description 異常",
+    "details": "Description 過短 (13 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/iso27001-certification/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/immutable-backup-vs-offline-backup/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/risk-assessment/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/risk-assessment/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/vulnerability-assessment/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/vulnerability-assessment/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/cloud-backup/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/cloud-backup/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-vulnerability-assessment/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ransomware-resolve/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-ransomware-secret/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/how-to-ransomware-decryption/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/mem_aieom_s/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/prevent_phishing/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/how-to-protect/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ransomware-backup-recovery/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ransomware-prevention/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ai-social-engineering-lazyguide/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -594,121 +816,31 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/operational-technology-security/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/operational-technology-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/network-management/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/network-management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/ransomware/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/ransomware/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/supplychain-security/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/supplychain-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/iso27001-business-value/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ai-social-engineering-lazyguide/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/cloud-application/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/cloud-application/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
     "url": "https://techops.digiwin.com/edr-stop-ransomware-before-encryption/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/iso27001-latest-fee/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
+    "url": "https://techops.digiwin.com/category/security/page/2/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/security/"
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/iso27001-certification/",
-    "type": "Description 異常",
-    "details": "Description 過短 (13 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/iso27001-certification/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/vulnerability-assessment/",
+    "url": "https://techops.digiwin.com/category/security/page/2/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/vulnerability-assessment/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "url": "https://techops.digiwin.com/category/security/page/2/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/cloud-backup/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/cloud-backup/",
+    "url": "https://techops.digiwin.com/category/security/page/2/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -768,121 +900,307 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/security/page/2/",
+    "url": "https://techops.digiwin.com/netattack7/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/oatk_321/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/line-official-website-phishing/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/databackup/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/procurement-security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/backup_water/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/how-to-detect/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/security-budget-tax/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/edr_protect/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/pam_3w/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/news_cyber-security-seminar/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/protect-personal-data/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/aieom_c_m/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/how-to-recover/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/what-is-risk-assessment/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/immutable-backup-zero-trust/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ai-phishing-account-security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/edr-ransomware-response/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/4/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/security/"
+    "referer": "https://techops.digiwin.com/category/activity/"
   },
   {
-    "url": "https://techops.digiwin.com/category/security/page/2/",
+    "url": "https://techops.digiwin.com/category/activity/page/4/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/security/page/2/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/2/",
+    "url": "https://techops.digiwin.com/category/activity/page/4/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/ai-it-automation/",
+    "url": "https://techops.digiwin.com/ai-agent-cybersecurity/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/edge-computing/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/edge-computing/",
+    "url": "https://techops.digiwin.com/aiops-compliance-ransomware/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/ransomware-prevention/",
+    "url": "https://techops.digiwin.com/cyber-compliance-2026/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/ransomware-backup-recovery/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/mdm/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/mdm/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/immutable-backup-vs-offline-backup/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/how-to-ransomware-decryption/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/how-to-pass-iso27001/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-vulnerability-assessment/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/prevent_phishing/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/news/page/4/",
+    "url": "https://techops.digiwin.com/category/activity/page/2/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/news/"
+    "referer": "https://techops.digiwin.com/category/activity/"
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/4/",
+    "url": "https://techops.digiwin.com/category/activity/page/2/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/4/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
+    "url": "https://techops.digiwin.com/category/activity/page/2/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/4/",
+    "url": "https://techops.digiwin.com/ai-security-ops-compliance-ransomware/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/source-code-security-ai/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/7/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/activity/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/7/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/7/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/vuln-priority/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/secure-remote-access/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/3/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/activity/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/3/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/3/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/case-vmware-vsan/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/hyper-converged-infrastructure-2/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/jhujian-iso27001/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/promotion-security-seminar/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/case-ransomware-incident-response/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/mailloss/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/imofmail/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/mail/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ezbak/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/backup_cloud/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/backup321/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/what-is-it-outsourcing/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/security-regulation-audit/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/netplan_error/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -894,55 +1212,163 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/3/",
+    "url": "https://techops.digiwin.com/category/blog/page/3/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/news/"
+    "referer": "https://techops.digiwin.com/category/blog/"
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/3/",
+    "url": "https://techops.digiwin.com/category/blog/page/3/",
     "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
+    "details": "Description 過短 (10 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/3/",
+    "url": "https://techops.digiwin.com/category/blog/page/3/",
     "type": "H1 異常",
     "details": "缺少 H1 標籤",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/3/",
+    "url": "https://techops.digiwin.com/category/blog/page/3/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/manufacturing-ot-security-supply-chain-2025-2026-risk-report/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/news/page/5/",
+    "url": "https://techops.digiwin.com/category/blog/page/4/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/news/"
+    "referer": "https://techops.digiwin.com/category/blog/"
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/5/",
+    "url": "https://techops.digiwin.com/category/blog/page/4/",
     "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
+    "details": "Description 過短 (10 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/5/",
+    "url": "https://techops.digiwin.com/category/blog/page/4/",
     "type": "H1 異常",
     "details": "缺少 H1 標籤",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/news/page/5/",
+    "url": "https://techops.digiwin.com/category/blog/page/4/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/2/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/blog/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/2/",
+    "type": "Description 異常",
+    "details": "Description 過短 (10 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/2/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/2/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/13/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/blog/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/13/",
+    "type": "Description 異常",
+    "details": "Description 過短 (10 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/13/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/13/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/cloud-digiwin-metaage-aws/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220923/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220713/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/security-regulation/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/what-is-account-password-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/cloud-backup/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/agentic-ai-cybersecurity-resilience/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/page/4/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/news/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/page/4/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/page/4/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/page/4/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -978,259 +1404,121 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/agentic-ai-cybersecurity-resilience/",
+    "url": "https://techops.digiwin.com/manufacturing-ot-security-supply-chain-2025-2026-risk-report/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/protect-personal-data/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/how-to-protect/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/how-to-protect-data/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/mem_aieom_s/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/13/",
+    "url": "https://techops.digiwin.com/category/news/page/3/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/"
+    "referer": "https://techops.digiwin.com/category/news/"
   },
   {
-    "url": "https://techops.digiwin.com/category/blog/page/13/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/13/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/13/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/3/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/3/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/3/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/3/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/4/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/4/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/4/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/4/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/2/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/2/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/2/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/2/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/how-to-detect/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/netplan_error/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/netattack7/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/how-to-recover/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/backup_water/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/oatk_321/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/procurement-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/otis/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/smart_data_leakage_and_endpoint_security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ai-security-ops-compliance-ransomware/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/7/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/activity/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/7/",
+    "url": "https://techops.digiwin.com/category/news/page/3/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/7/",
+    "url": "https://techops.digiwin.com/category/news/page/3/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/page/3/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/aiops-compliance-ransomware/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/3/",
+    "url": "https://techops.digiwin.com/category/news/page/5/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/activity/"
+    "referer": "https://techops.digiwin.com/category/news/"
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/3/",
+    "url": "https://techops.digiwin.com/category/news/page/5/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/3/",
+    "url": "https://techops.digiwin.com/category/news/page/5/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/news/page/5/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/2/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/activity/"
+    "url": "https://techops.digiwin.com/cdm_inventory/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/2/",
+    "url": "https://techops.digiwin.com/iso27001quick-quote/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/zerotrust/",
     "type": "Description 異常",
     "details": "Description 過短 (9 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/2/",
+    "url": "https://techops.digiwin.com/zerotrust/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/secure-remote-access/",
+    "url": "https://techops.digiwin.com/iso-27001-certification-audit-solution/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/vuln-priority/",
+    "url": "https://techops.digiwin.com/ai_security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/se-data-leak-risk/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-edge-server/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/bigcve2021/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-fortinet-ot-security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/cybersecurity-trends-ai-agent/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -1242,235 +1530,163 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/source-code-security-ai/",
+    "url": "https://techops.digiwin.com/event-arrosoft-cloud/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/cyber-compliance-2026/",
+    "url": "https://techops.digiwin.com/cloud/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/ai-agent-cybersecurity/",
+    "url": "https://techops.digiwin.com/smb_ransomware/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/ai-phishing-account-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/immutable-backup-zero-trust/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/edr-ransomware-response/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/4/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/activity/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/4/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/4/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/backup321/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ezbak/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/backup_cloud/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/databackup/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/cloud-digiwin-metaage-aws/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/security-regulation-audit/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ot_network_security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/hyper-converged-infrastructure/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/security-regulation/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20220923/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20220713/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/aieom_c_m/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/pam_3w/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/security-budget-tax/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/mailloss/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ai-chain-taiwan/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-risk-assessment/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/mulisthreats/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/cloud-backup/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ransomware-resolve/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-ransomware-secret/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/mail/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/imofmail/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-account-password-management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/hyper-converged-infrastructure-2/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/case-vmware-vsan/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/case-ransomware-incident-response/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/jhujian-iso27001/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/promotion-security-seminar/",
+    "url": "https://techops.digiwin.com/anti-ransom-3defense/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
     "url": "https://techops.digiwin.com/ransomware-detection-and-prevention/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ransomware-data-backup/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-ransomware-defence/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/backupshield/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-itot-network/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-network-management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/office-network-solution/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/information-security-diagnostic/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-eos-risk/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/howtodo-ipo-security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ai-phishing-emails/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/backup-and-restore-drill/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-corporation-bcm/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-disaster-recovery/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/encryptednasa/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/wfhnow/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-mdm/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-how-to-get-iso27001/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/iso-27001-quote/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-what-is-iso27001/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ransomware-risk-check/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ransomware-risk-check/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/rw_8tips/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -1494,276 +1710,6 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/cybersecurity-trends-ai-agent/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/cyber-audit-external-assets/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/se-data-leak-risk/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-corporation-bcm/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/backup-and-restore-drill/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-disaster-recovery/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/personal-information-protection-lazyguide/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/6/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/security/page/4/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/6/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/6/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/6/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-phishing-email-bec/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/howtodo-ipo-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/information-security-diagnostic/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/5/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/security/page/4/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/5/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/5/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/5/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/7/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/security/page/4/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/7/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/7/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/7/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-fortinet-ot-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-network-management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-itot-network/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/office-network-solution/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/smb_ransomware/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ai_security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ransomware-data-backup/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/anti-ransom-3defense/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-ransomware-defence/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/backupshield/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/iso27001quick-quote/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-arrosoft-cloud/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/cloud/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ransomware-risk-check/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ransomware-risk-check/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/edr-mdr-key-difference/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-mdr/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/tax_mitigation/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ciso4tk/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-edr/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-what-is-iso27001/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/iso-27001-quote/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-how-to-get-iso27001/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
     "url": "https://techops.digiwin.com/information-security-audit/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
@@ -1776,109 +1722,13 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/news_cyber-security-seminar/",
+    "url": "https://techops.digiwin.com/activity_20220428/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/what-is-information-security-maintenance-plan/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/telecommute/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-eos-risk/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-edr-how-choose-suitable-edr/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ai-information-security-lazyguide/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-it-outsourcing/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/8/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/security/page/10/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/8/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/8/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/8/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/9/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/security/page/10/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/9/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/9/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/security/page/9/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/fortinet-triangle-solution/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/line-official-website-phishing/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/how-to-protect-ai-phishing-emails/",
+    "url": "https://techops.digiwin.com/activity_20221220/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -1890,19 +1740,49 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/activity_20220623/",
+    "url": "https://techops.digiwin.com/event-security-scorecard/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/event-edge-server/",
+    "url": "https://techops.digiwin.com/what-is-phishing-email-bec/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/ocpis/",
+    "url": "https://techops.digiwin.com/is-fmb/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220527/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/tax_mitigation/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/what-is-soc/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/what-is-edr/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/security-regulation_lazyguide/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -1920,43 +1800,181 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/security_loopholes/",
+    "url": "https://techops.digiwin.com/category/security/page/6/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/security/page/4/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/6/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/6/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/6/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/network-triangle-solution/",
+    "url": "https://techops.digiwin.com/personal-information-protection-lazyguide/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/event-mdm/",
+    "url": "https://techops.digiwin.com/category/security/page/7/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/security/page/4/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/7/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/7/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/7/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/citrix/",
+    "url": "https://techops.digiwin.com/category/security/page/5/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/security/page/4/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/5/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/5/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/5/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/rw_8tips/",
+    "url": "https://techops.digiwin.com/what-is-mdr/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/edr_protect/",
+    "url": "https://techops.digiwin.com/edr-mdr-key-difference/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/is-fmb/",
+    "url": "https://techops.digiwin.com/7r/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/smart_data_leakage_and_endpoint_security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/how-to-protect-ai-phishing-emails/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ai-information-security-lazyguide/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/what-is-edr-how-choose-suitable-edr/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/9/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/security/page/10/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/9/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/9/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/9/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/8/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/security/page/10/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/8/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/8/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/security/page/8/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/fortinet-triangle-solution/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/mhoa/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -1968,49 +1986,37 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/databreach/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/iso-27001-certification-audit-solution/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20221122/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20220527/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/cdm_inventory/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
     "url": "https://techops.digiwin.com/pltot-s/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/security-regulation_lazyguide/",
+    "url": "https://techops.digiwin.com/social_engineering/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/bigcve2021/",
+    "url": "https://techops.digiwin.com/ciso4tk/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ai-chain-taiwan/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ot_network_security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/telecommute/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -2028,25 +2034,181 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/mhoa/",
+    "url": "https://techops.digiwin.com/what-is-information-security-maintenance-plan/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/encryptednasa/",
+    "url": "https://techops.digiwin.com/pam/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/wfhnow/",
+    "url": "https://techops.digiwin.com/mulisthreats/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/socialatk/",
+    "url": "https://techops.digiwin.com/issue-Sensitive-Doc-Mgmt-Audit/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/issue-PAM-Privileged-Access-Management/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/iam_event/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/cyber-audit-external-assets/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20221025/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/mis-engineer-and-cyber-security/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/6/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/activity/page/4/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/6/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/6/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/5/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/activity/page/4/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/5/",
+    "type": "Description 異常",
+    "details": "Description 過短 (9 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/activity/page/5/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220714/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220623/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20221206/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220519/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/mdr_event_20220329/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/otthreat/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220609/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20220727/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/security-fabric/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/event-smb-security-strategy/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/hyper-converged-infrastructure/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/network-triangle-solution/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/ocpis/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/mining_edr/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20221202/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -2058,73 +2220,7 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/blog/page/10/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/page/13/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/10/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/10/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/10/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/12/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/page/13/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/12/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/12/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/12/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/11/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/page/13/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/11/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/11/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/11/",
+    "url": "https://techops.digiwin.com/databreach/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -2202,223 +2298,79 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/activity_20221202/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/chatgptsecurity/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-PAM-Privileged-Access-Management/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/issue-Sensitive-Doc-Mgmt-Audit/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/acctsafety/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20220714/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/5/",
+    "url": "https://techops.digiwin.com/category/blog/page/10/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/activity/page/7/"
+    "referer": "https://techops.digiwin.com/category/blog/page/13/"
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/5/",
+    "url": "https://techops.digiwin.com/category/blog/page/10/",
     "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
+    "details": "Description 過短 (10 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/5/",
+    "url": "https://techops.digiwin.com/category/blog/page/10/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/10/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/activity_20220428/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20220519/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/mdr_event_20220329/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20220609/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/activity/page/6/",
+    "url": "https://techops.digiwin.com/category/blog/page/11/",
     "type": "遺漏於 Sitemap",
     "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/activity/page/7/"
+    "referer": "https://techops.digiwin.com/category/blog/page/13/"
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/6/",
+    "url": "https://techops.digiwin.com/category/blog/page/11/",
     "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
+    "details": "Description 過短 (10 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/activity/page/6/",
+    "url": "https://techops.digiwin.com/category/blog/page/11/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/11/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/otthreat/",
+    "url": "https://techops.digiwin.com/citrix/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/mis-engineer-and-cyber-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "url": "https://techops.digiwin.com/category/blog/page/12/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/blog/page/13/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/12/",
+    "type": "Description 異常",
+    "details": "Description 過短 (10 字)",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/pam/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "url": "https://techops.digiwin.com/category/blog/page/12/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/event-smb-security-strategy/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/event-security-scorecard/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/iam_event/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/ai-phishing-emails/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/data-breach/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/cyber-security-threat/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20221025/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20221220/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_network-security/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/security-fabric/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/factory-network/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/social_engineering/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/mining_edr/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20230223/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20221206/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20221026/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/what-is-soc/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/activity_20221012/",
+    "url": "https://techops.digiwin.com/category/blog/page/12/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -2430,43 +2382,13 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/activity_20220727/",
+    "url": "https://techops.digiwin.com/activity_20221012/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/activity_20221108/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/hp_pc_digiwin_mdr/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/hp_pc_digiwin_mdr/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/7r/",
-    "type": "不當的內部連結",
-    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/zerotrust/",
-    "type": "Description 異常",
-    "details": "Description 過短 (9 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/zerotrust/",
+    "url": "https://techops.digiwin.com/activity_20230223/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -2478,49 +2400,73 @@
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/blog/page/8/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/page/10/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/8/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/8/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
-    "referer": null
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/8/",
+    "url": "https://techops.digiwin.com/activity_network-security/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/blog/page/9/",
-    "type": "遺漏於 Sitemap",
-    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
-    "referer": "https://techops.digiwin.com/category/blog/page/10/"
-  },
-  {
-    "url": "https://techops.digiwin.com/category/blog/page/9/",
-    "type": "Description 異常",
-    "details": "Description 過短 (10 字)",
+    "url": "https://techops.digiwin.com/socialatk/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/blog/page/9/",
-    "type": "H1 異常",
-    "details": "缺少 H1 標籤",
+    "url": "https://techops.digiwin.com/cyber-security-threat/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
   },
   {
-    "url": "https://techops.digiwin.com/category/blog/page/9/",
+    "url": "https://techops.digiwin.com/chatgptsecurity/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/security_loopholes/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/factory-network/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20221122/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20221108/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/activity_20221026/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/otis/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/acctsafety/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/data-breach/",
     "type": "不當的內部連結",
     "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
     "referer": null
@@ -2538,10 +2484,70 @@
     "referer": null
   },
   {
+    "url": "https://techops.digiwin.com/hp_pc_digiwin_mdr/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/hp_pc_digiwin_mdr/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/8/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/blog/page/5/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/8/",
+    "type": "Description 異常",
+    "details": "Description 過短 (10 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/8/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/8/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/9/",
+    "type": "遺漏於 Sitemap",
+    "details": "網頁無 noindex，卻不在 sitemap.xml 中",
+    "referer": "https://techops.digiwin.com/category/blog/page/6/"
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/9/",
+    "type": "Description 異常",
+    "details": "Description 過短 (10 字)",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/9/",
+    "type": "H1 異常",
+    "details": "缺少 H1 標籤",
+    "referer": null
+  },
+  {
+    "url": "https://techops.digiwin.com/category/blog/page/9/",
+    "type": "不當的內部連結",
+    "details": "連向了被標記為 noindex/nofollow 的網頁: https://techops.digiwin.com/iso27001-consultant/",
+    "referer": null
+  },
+  {
     "url": "https://techops.digiwin.com/file-download/",
     "type": "死結 (Broken Link)",
     "details": "狀態碼: 404",
-    "referer": "https://techops.digiwin.com/solution-ot/"
+    "referer": "https://techops.digiwin.com/spam/"
   },
   {
     "url": "https://techops.digiwin.com/rw_sum/",
